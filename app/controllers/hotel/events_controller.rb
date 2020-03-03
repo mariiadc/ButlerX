@@ -52,7 +52,7 @@ module Hotel
     end
 
     def params
-      params.require(:event).permit(:name, :description)
+      params.require(:event).permit(:name, :photo, :description)
     end
   end
 end

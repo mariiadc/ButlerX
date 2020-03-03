@@ -52,7 +52,7 @@ module Hotel
     end
 
     def params
-      params.require(:service).permit(:name, :desription, :category, :price)
+      params.require(:service).permit(:name, :desription, :photo, :category, :price)
     end
   end
 end

@@ -8,5 +8,6 @@ class Service < ApplicationRecord
   validates :description, presence: true, allow_blank: false
   validates :category, presence: true, allow_blank: false
   monetize :price_cents
+  has_one_attached :photo
 
 end
