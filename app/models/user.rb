@@ -1,18 +1,21 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :bookings
-  has_many :chats
-  has_many :services
-  has_many :rooms
-  has_many :events
+  has_many :guest_bookings, class_name: 'Booking', foreign_key: "guest_id"
+  has_many :hotel_bookings, class_name: 'Booking', foreign_key: "hotel_id"
+  has_many :hotel_events, class_name: 'Event', foreign_key: "hotel_id"
+  has_many :hotel_services, class_name: 'Service', foreign_key: "hotel_id"
+  has_many :hotel_rooms, class_name: 'Room', foreign_key: "hotel_id"
+  has_many :hotel_chats, class_name: 'Chat', foreign_key: "hotel_id"
+
   has_many :meals, through: :services
   has_many :bills
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook]
-  enum role: [ :guest, :hotel]
+  devise  :database_authenticatable, :registerable,
+          :recoverable, :rememberable, :validatable,
+          :omniauthable, omniauth_providers: [:facebook]
+
+  enum role: [ :guest, :hotel ]
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice("provider", "uid")
@@ -34,4 +37,5 @@ class User < ApplicationRecord
 
     return user
   end
+
 end

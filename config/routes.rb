@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       resources :meals, only: [:index, :show]
       resources :rooms, only: [ :show]
       resources :bills, only: [:show, :create] do
-       resources :payments, only: :new
+        resources :payments, only: :new
       end
     end
   end

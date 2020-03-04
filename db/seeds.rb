@@ -65,7 +65,7 @@ room_names.each do |elem|
     5.times do |i|
       i += 1
       i = i.to_s
-      room = Room.new(name: elem, room_number: i, user_id: user.id, availability: true)
+      room = Room.new(name: elem, room_number: i, hotel: user, availability: true)
       room.save!
     end
 end
@@ -81,7 +81,7 @@ It is a demo of their prototypes, a celebration of their achievements, and the b
 Projects Phase is the ultimate experience in Le Wagon's Coding Bootcamp: invent, pitch, design, code and deploy an original project in teams of 3 or 4 people during the two final weeks (or month for our part-timers). On the last day of the bootcamp, our Wagoners will present their products at our hugely popular Demo Day!"
 
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583322866/ButlerX/InesHotel/lewagon_event_ldeouc.jpg')
-event1 = Event.new(name: "Le Wagon Lisbon, Batch 346 - Demo Day" , description: description, user_id: user.id)
+event1 = Event.new(name: "Le Wagon Lisbon, Batch 346 - Demo Day" , description: description, hotel: user)
 event1.photo.attach(io: file, filename: 'demo.jpg', content_type: 'image/jpg')
 event1.save!
 
@@ -91,7 +91,7 @@ AMON AMARTH, SEPULTURA e SYLOSIS são as mais recentes confirmações para a edi
 A PRIME ARTISTS confirma hoje três novos nomes na edição de 2020 do VOA – HEAVY ROCK FESTIVAL: aos já anunciados SYSTEM OF A DOWN, KORN, MESHUGGAH e BIZARRA LOCOMOTIVA juntam-se os brasileiros SEPULTURA a 2 de julho; no dia seguinte, 3 de julho, os suecos AMON AMARTH e os britânicos SYLOSIS reforçam a programação encabeçada pelos BRING ME THE HORIZON e OF MICE & MEN. Três propostas que prometem tornar ainda mais memorável a 11.ª edição do VOA – HEAVY ROCK FESTIVAL: SEPULTURA, uma lenda do thrash dos anos 80; AMON AMARTH, porta-estandartes do death metal melódico de inspiração viking; e SYLOSIS, uma das forças mais aplaudidas da nova geração da música de peso"
 
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583322867/ButlerX/InesHotel/voa_event_quaju9.jpg')
-event2 = Event.new(name: "VOA 2020 - HEAVY ROCK FESTIVAL", description: description2, user_id: user.id)
+event2 = Event.new(name: "VOA 2020 - HEAVY ROCK FESTIVAL", description: description2, hotel: user)
 event2.photo.attach(io: file, filename: 'voa.jpg', content_type: 'image/jpg')
 event2.save!
 
@@ -111,7 +111,7 @@ description_service = "Este hotel dispõe de 2 piscinas exteriores com vistas pa
 category_service = "Wellness"
 price_cents = 5
 
-service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, user_id: user.id )
+service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user )
 service.photo.attach(io: file, filename: 'pool.jpg', content_type: 'image/jpg')
 service.save!
 
@@ -120,7 +120,7 @@ description_service = "Este hotel dispõe de 1 campo de ténis para os entusiast
 category_service = "Wellness"
 price_cents = 10
 
-service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, user_id: user.id)
+service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user)
 service.save
 
 name_service = "Outdoor Activities"
@@ -128,7 +128,7 @@ description_service = "Outdoor Activities are plenty for our customers, such as 
 category_service = "Wellness"
 price_cents = 15
 
-service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, user_id: user.id)
+service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user)
 service.save
 
 
@@ -139,7 +139,7 @@ description_service = "Acesso Wi-Fi disponível por todo o hotel. Custo: Gratuit
 category_service = "Geral"
 price_cents = 0
 
-service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, user_id: user.id)
+service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user)
 service.save
 
 # # 3rd service
@@ -149,7 +149,7 @@ description_service = "Contacte-nos através do chat para mais informação se n
 category_service = "Geral"
 price_cents = 0
 
-service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, user_id: user.id)
+service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user)
 service.save
 
 # # 4th service Meal
@@ -160,7 +160,7 @@ description_service = "Cozido à portuguesa é um cozido tradicional português.
 category_service = "Meal"
 price_cents = 12
 
-service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, user_id: user.id)
+service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user)
 service.photo.attach(io: file, filename: 'cozido.jpg', content_type: 'image/jpg')
 service.save!
 
@@ -177,7 +177,7 @@ Segundo a Dona Dolores, Bacalhau à Brás é um dos pratos preferidos do seu fil
 category_service = "Meal"
 price_cents = 12
 
-service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, user_id: user.id)
+service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user)
 service.photo.attach(io: file, filename: 'bacalhau.jpg', content_type: 'image/jpg')
 service.save!
 
@@ -189,7 +189,7 @@ description_service = "DescriçãoFeijoada é uma designação comum dada a prat
 category_service = "Meal"
 price_cents = 15
 
-service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, user_id: user.id)
+service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user)
 service.photo.attach(io: file, filename: 'feijoada.jpg', content_type: 'image/jpg')
 service.save!
 
@@ -201,10 +201,12 @@ description_service = "Ovos mexidos é um prato de culinária feito a partir de 
 category_service = "Meal"
 price_cents = 10
 
-service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, user_id: user.id)
+service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user)
 service.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
 service.save!
 
 
 
 puts "Done! F to the Yeah!"
+
+Booking.new(check_in: Date.parse('2020-03-04'), check_out: Date.parse('2020-03-20'), booking_number: '2662823182', hotel: user, guest: user2)
