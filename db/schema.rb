@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_221035) do
+ActiveRecord::Schema.define(version: 2020_03_04_111928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,13 +38,13 @@ ActiveRecord::Schema.define(version: 2020_03_03_221035) do
 
   create_table "bills", force: :cascade do |t|
     t.string "state"
-    t.string "service_sku"
     t.integer "amount_cents", default: 0, null: false
     t.string "checkout_session_id"
-    t.bigint "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["service_id"], name: "index_bills_on_service_id"
+    t.bigint "booking_id"
+    t.string "service_sku"
+    t.index ["booking_id"], name: "index_bills_on_booking_id"
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(version: 2020_03_03_221035) do
     t.boolean "availability"
     t.string "room_number", null: false
     t.bigint "user_id"
+    t.bigint "booking_id"
+    t.index ["booking_id"], name: "index_rooms_on_booking_id"
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
@@ -115,7 +117,6 @@ ActiveRecord::Schema.define(version: 2020_03_03_221035) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bills", "services"
   add_foreign_key "bookings", "users"
   add_foreign_key "chats", "users"
   add_foreign_key "events", "users"
