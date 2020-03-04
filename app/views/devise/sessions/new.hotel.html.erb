@@ -1,7 +1,7 @@
 <div class="container _signup">
-  <div class="row justify-content-center m-3 p-4" class="_signup">
-    <div class="col-4" class="_signup">
-<h2 class="sisu-details" align="center">Log in</h2>
+  <div class="row justify-content-center m-3 p-4">
+    <div class="col-4">
+<h2 align="center">Log in</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs sisu">
@@ -16,7 +16,7 @@
   </div>
 
   <div class="form-actions _login" align="center">
-    <%= f.button :submit, "Log in", class:"sisu-btn"%>
+    <%= f.button :submit, "Log in" %>
   </div>
 </div>
 <% end %>
