@@ -5,6 +5,6 @@ class Room < ApplicationRecord
   has_many :roomservices
   validates :name, presence: true, allow_blank: false
   validates :availability, inclusion: { in: [true, false] }
-  validates :number, numericality: true, allow_blank: false
+  validates :room_number, numericality: true, allow_blank: false
   # INCLUDE THE KEY IN THE FUTURE!!!
 end
