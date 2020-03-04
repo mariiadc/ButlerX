@@ -12,7 +12,11 @@
 
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+
+    <% unless current_user.blank? %>
+    <%=  render 'shared/navbar' %>
+    <% end %>
+
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>

@@ -1,1 +1,61 @@
-// Specific CSS for your home-page
+.banner {
+
+  background-size: cover;
+  background-position: center;
+  padding: 200px 0;
+  clip-path: circle(95% at top);
+}
+
+.banner h1 {
+  margin: 0;
+  color: #F2F2F2;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.banner p {
+  font-size: 20px;
+  color: #D9D0C7;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.homebutton{
+border-radius: 15px;
+text-align: center;
+color: #1A2E40;
+border-color: #1A2E40;
+}
+
+.homebutton:hover {
+  background-color: #1A2E40;
+  color:#F2F2F2;
+  border-color: transparent;
+}
+.homebutton1{
+margin-top: 20px;
+text-align: center;
+
+}
+
+.homebutton2{
+text-align: center;
+margin-top: 20px;
+}
+
+.explore{
+  text-align: center;
+  background-color: transparent;
+  margin-top: 20px;
+  color: #1A2E40;
+  border: none;
+
+}
+
+.explore:hover{
+background-color: transparent;
+border: none;
+}
