@@ -79,8 +79,12 @@ ActiveRecord::Schema.define(version: 2020_03_04_111928) do
   end
 
   create_table "roomservices", force: :cascade do |t|
+    t.bigint "room_id"
+    t.bigint "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_roomservices_on_room_id"
+    t.index ["service_id"], name: "index_roomservices_on_service_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -102,8 +106,8 @@ ActiveRecord::Schema.define(version: 2020_03_04_111928) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role"
-    t.string "first_name", null: false
-    t.string "last_name", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.string "address"
     t.string "name"
     t.integer "stars"
@@ -121,5 +125,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_111928) do
   add_foreign_key "chats", "users"
   add_foreign_key "events", "users"
   add_foreign_key "rooms", "users"
+  add_foreign_key "roomservices", "rooms"
+  add_foreign_key "roomservices", "services"
   add_foreign_key "services", "users"
 end
