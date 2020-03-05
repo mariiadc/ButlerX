@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :channel_messages
+  resources :channels
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
@@ -27,6 +29,13 @@ Rails.application.routes.draw do
     end
   end
 
+
+# CHAT ROUTES! DONT KNOW WHAT I AM DOING STILL
+
+  root controller: :channels, action: :index
+
+  resources :channel_messages
+  resources :channels
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

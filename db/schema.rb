@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_161736) do
+ActiveRecord::Schema.define(version: 2020_03_05_122336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,30 @@ ActiveRecord::Schema.define(version: 2020_03_04_161736) do
     t.bigint "hotel_id"
     t.index ["guest_id"], name: "index_bookings_on_guest_id"
     t.index ["hotel_id"], name: "index_bookings_on_hotel_id"
+  end
+
+  create_table "channel_messages", force: :cascade do |t|
+    t.bigint "channel_id"
+    t.bigint "user_id"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["channel_id"], name: "index_channel_messages_on_channel_id"
+    t.index ["user_id"], name: "index_channel_messages_on_user_id"
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_channels_on_name", unique: true
+  end
+
+  create_table "chat_rooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_chat_rooms_on_name", unique: true
   end
 
   create_table "chats", force: :cascade do |t|
@@ -123,6 +147,8 @@ ActiveRecord::Schema.define(version: 2020_03_04_161736) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "channel_messages", "channels"
+  add_foreign_key "channel_messages", "users"
   add_foreign_key "roomservices", "rooms"
   add_foreign_key "roomservices", "services"
 end

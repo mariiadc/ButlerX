@@ -1,0 +1,40 @@
+<h1>Channels Index</h1>
+
+<div class="row">
+  <div class="col-12 col-md-3">
+    <div class="mb-3">
+      <%= link_to new_channel_path, class: "btn btn-primary" do %>
+        Create a channel
+      <% end %>
+    </div>
+
+    <% if @channels.present? %>
+      <nav class="nav flex-column">
+        <% @channels.each do |channel| %>
+          <%= link_to channel.name, channel_path(channel), class: "nav-link room-nav-link" %>
+        <% end %>
+      </nav>
+    <% else %>
+      <div class="text-muted">
+        The are no channels
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col">
+    <div class="alert alert-primary">
+      <h4 class="alert-heading">
+        Welcome to the RailsChatTutorial!
+      </h4>
+
+      <p>
+        We need to talk.
+      </p>
+
+      <hr />
+
+      <p>
+        You can create or join a room from the sidebar.
+      </p>
+    </div>
+</div>
