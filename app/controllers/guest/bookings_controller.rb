@@ -1,23 +1,23 @@
 module Guest
   class BookingsController < ApplicationController
-    before_action :find, only: [:show, :create]
+    before_action :set_booking, only: [:show, :create]
 
     def index
       @bookings = policy_scope(Booking).where(user_id: current_user)
-       authorize @bookings
+       authorize [:guest, @booking]
     end
 
     def new
       @booking = Booking.new
-      authorize @booking
+      authorize [:guest, @booking]
     end
 
     def show
-       authorize @booking
+       authorize [:guest, @booking]
     end
 
     def create
-      @booking = Booking.new(params)
+      @booking = Booking.new(booking_params)
       authorize @booking
 
       respond_to do |format|
@@ -33,12 +33,11 @@ module Guest
 
     private
 
-    def find
+    def set_booking
       @booking = Booking.find(params[:id])
-      authorize @booking
     end
 
-    def params
+    def booking_params
       params.require(:booking).permit(:check_in, :check_out, :booking_number)
     end
 

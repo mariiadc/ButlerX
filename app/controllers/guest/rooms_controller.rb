@@ -3,7 +3,7 @@ module Guest
 
     def show
       @room = Room.find(params[:id])
-      authorize @room
+      authorize [:guest, @room]
     end
 
   end

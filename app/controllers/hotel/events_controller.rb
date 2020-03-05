@@ -3,21 +3,21 @@ module Hotel
     before_action :find, only: [:show, :create, :edit, :update, :destroy]
     def index
       @events = Event.all
-      authorize @events
+      authorize [:hotel, @events]
     end
 
     def new
       @event = Event.new
-      authorize @event
+      authorize [:hotel, @events]
     end
 
     def show
-      authorize @event
+      authorize [:hotel, @events]
     end
 
     def create
-      @event = Event.new(params)
-      authorize @event
+      @event = Event.new(event_params)
+      authorize [:hotel, @events]
 
       respond_to do |format|
         if @event.save
@@ -31,27 +31,27 @@ module Hotel
     end
 
     def edit
-      authorize @event
+      authorize [:hotel, @events]
     end
 
     def update
       @event.save
-      authorize @event
+      authorize [:hotel, @events]
     end
 
     def destroy
       @event.destroy
-      authorize @event
+      authorize [:hotel, @events]
     end
 
      private
 
     def find
       @event = Event.find(params[:id])
-      authorize @event
+      authorize [:hotel, @events]
     end
 
-    def params
+    def event_params
       params.require(:event).permit(:name, :photo, :description)
     end
   end

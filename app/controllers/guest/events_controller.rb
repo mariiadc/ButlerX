@@ -4,7 +4,7 @@ module Guest
 
     def index
       @events = Event.all
-       authorize @events
+       authorize [:guest, @events]
     end
 
     def show
@@ -14,7 +14,7 @@ module Guest
 
     def find
       @event = Event.find(params[:id])
-      authorize @event
+      authorize [:guest, @events]
     end
   end
 end
