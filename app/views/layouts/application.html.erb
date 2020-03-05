@@ -13,8 +13,10 @@
   </head>
   <body>
 
-    <% unless current_user.blank? %>
-    <%=  render 'shared/navbar' %>
+    <% if current_user.blank? %>
+      <%=  render 'shared/navbar' %>
+    <% else %>
+     <%= "" %>
     <% end %>
 
     <%= render 'shared/flashes' %>
