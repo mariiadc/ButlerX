@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80);">
   <div class="container">
     <h1> Welcome to ButlerX!</h1>
     <br>
@@ -8,13 +8,16 @@
   <div class="enter">
     <div class="homebutton1">
       <button type="button" class="btn btn-outline-primary homebutton">Sign in as Guest</button>
-      <p>Sign up as Guest</p>
     </div>
 
+        <%= link_to "Sign up as Guest", new_user_registration_path, class: "signup-link" %>
+
+
       <div class="homebutton2">
-      <button type="button" class="btn btn-outline-primary homebutton">Sign in as Hotel</button>
-      <p>Sign up as Hotel</p>
+        <%= link_to "Enter as Hotel", new_user_registration_path, class: "btn btn-outline-primary homebutton" %>
+      <!-- <button type="button" class="btn btn-outline-primary homebutton">Enter as Hotel</button> -->
     </div>
+
   </div>
 
 <div id="list-example" class="list-group">
