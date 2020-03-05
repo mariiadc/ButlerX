@@ -209,4 +209,5 @@ service.save!
 
 puts "Done! F to the Yeah!"
 
-Booking.new(check_in: Date.parse('2020-03-04'), check_out: Date.parse('2020-03-20'), booking_number: '2662823182', hotel: user, guest: user2)
+booking = Booking.new(check_in: Date.parse('2020-03-04'), check_out: Date.parse('2020-03-20'), booking_number: '2662823182', hotel: user, guest: user2)
+booking.save!

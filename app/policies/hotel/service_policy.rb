@@ -4,36 +4,35 @@ class Hotel::ServicePolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
+  def new?
+    return true
+  end
 
-    def new?
-      return true
-    end
+  def show?
+    return true
+  end
 
-    def show?
-      return true
-    end
+  def create?
+    return true
+  end
 
-    def create?
-      return true
-    end
+  def edit
+    user_is_hotel?
+  end
 
-    def edit
-      user_is_hotel?
-    end
+  def update
+    user_is_hotel?
+  end
 
-    def update
-      user_is_hotel?
-    end
-
-    def destroy
-      user_is_hotel?
-    end
+  def destroy
+    user_is_hotel?
+  end
 
 
-    private
+  private
 
-    def user_is_hotel?
-      record.user == hotel
-    end
+  def user_is_hotel?
+    record.user == hotel
   end
 end

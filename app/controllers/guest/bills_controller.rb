@@ -5,14 +5,14 @@ module Guest
     def show
       # @room.roomservices
 
-      authorize @bill
+      authorize [:guest, @bill]
     end
 
 
     def create
 
     @bill  = Bill.create!(service: service, service_sku: service.sku, amount: service.price, state: 'pending', user: current_user)
-    authorize @bill
+    authorize  [:guest, @bill]
 
 
     line_items = room.roomservice.map do |service|
@@ -43,7 +43,7 @@ module Guest
     def find
       @bill = current_user.bills.find(params[:id])
 
-      authorize @bill
+      authorize  [:guest, @bill]
     end
   end
 end

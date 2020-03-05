@@ -3,20 +3,20 @@ module Hotel
     before_action :find, only: [:show, :create, :edit, :update, :destroy]
     def index
       @rooms = Room.all
-      authorize @rooms
+      authorize [:hotel, @rooms]
     end
 
     def new
       @room = Room.new
-      authorize @room
+      authorize [:hotel, @rooms]
     end
 
     def show
     end
 
     def create
-      @room = Room.new(params)
-      authorize @room
+      @room = Room.new(room_params)
+      authorize [:hotel, @rooms]
 
         respond_to do |format|
         if @room.save
@@ -30,27 +30,27 @@ module Hotel
     end
 
     def edit
-      authorize @room
+      authorize [:hotel, @rooms]
     end
 
     def update
       @room.save
-      authorize @room
+      authorize [:hotel, @rooms]
     end
 
     def destroy
       @room.destroy
-      authorize @room
+      authorize [:hotel, @rooms]
     end
 
      private
 
     def find
       @room = Room.find(params[:id])
-      authorize @room
+      authorize  [:hotel, @rooms]
     end
 
-    def params
+    def room_params
       params.require(:room).permit(:name, :room_number) #availability ?
     end
   end

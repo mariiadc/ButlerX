@@ -3,21 +3,21 @@ module Hotel
     before_action :find, only: [:show, :create, :edit, :update, :destroy]
     def index
         @services = Service.all
-        authorize @services
+        authorize [:hotel, @services]
     end
 
     def new
       @service = Service.new
-      authorize @service
+      authorize [:hotel, @services]
     end
 
     def show
-      authorize @service
+      authorize [:hotel, @services]
     end
 
     def create
-      @service = Service.new(params)
-      authorize @service
+      @service = Service.new(service_params)
+      authorize [:hotel, @services]
 
           respond_to do |format|
         if @service.save
@@ -31,17 +31,17 @@ module Hotel
     end
 
     def edit
-      authorize @service
+      authorize [:hotel, @services]
     end
 
     def update
       @service.save
-      authorize @service
+      authorize [:hotel, @services]
     end
 
     def destroy
       @service.destroy
-      authorize @service
+      authorize [:hotel, @services]
     end
 
      private
@@ -51,7 +51,7 @@ module Hotel
       authorize @service
     end
 
-    def params
+    def service_params
       params.require(:service).permit(:name, :desription, :photo, :category, :price)
     end
   end
