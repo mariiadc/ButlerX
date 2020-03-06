@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_161736) do
+ActiveRecord::Schema.define(version: 2020_03_05_163400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,12 @@ ActiveRecord::Schema.define(version: 2020_03_04_161736) do
     t.index ["hotel_id"], name: "index_bookings_on_hotel_id"
   end
 
+  create_table "chat_rooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "chats", force: :cascade do |t|
     t.boolean "status"
     t.bigint "hotel_id"
@@ -68,6 +74,16 @@ ActiveRecord::Schema.define(version: 2020_03_04_161736) do
     t.text "description", null: false
     t.bigint "hotel_id"
     t.index ["hotel_id"], name: "index_events_on_hotel_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chat_room_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_room_id"], name: "index_messages_on_chat_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -107,7 +123,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_161736) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "role"
+    t.integer "role", default: 0
     t.string "first_name"
     t.string "last_name"
     t.string "address"
@@ -123,6 +139,8 @@ ActiveRecord::Schema.define(version: 2020_03_04_161736) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "messages", "chat_rooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "roomservices", "rooms"
   add_foreign_key "roomservices", "services"
 end
