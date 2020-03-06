@@ -12,6 +12,7 @@ require 'pry-byebug'
 puts "Destroying All"
 
 ChatRoom.destroy_all
+Booking.destroy_all
 Room.destroy_all
 Service.destroy_all
 Event.destroy_all
@@ -213,7 +214,7 @@ puts "Done! F to the Yeah!"
 booking = Booking.new(check_in: Date.parse('2020-03-04'), check_out: Date.parse('2020-03-20'), booking_number: '2662823182', hotel: user, guest: user2)
 booking.save!
 
-chat_room = ChatRoom.create!(name: "Customer Support")
+chat_room = ChatRoom.create!(name: "Customer Support", booking_id: booking.id)
 message = Message.new(content: "Hi! Welcome to our establishment. Anything you need don't hesitate to get in touch with us. Hope you enjoy your stay.",
   chat_room_id: chat_room.id, user_id: user.id)
 message.save!
