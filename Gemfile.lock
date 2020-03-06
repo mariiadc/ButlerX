@@ -276,7 +276,6 @@ DEPENDENCIES
   puma
   pundit
   rails (= 5.2.4.1)
-  redis
   sassc-rails
   sidekiq
   sidekiq-failures (~> 1.0)
