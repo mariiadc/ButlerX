@@ -1,0 +1,17 @@
+
+<!-- <div class="message <%#= message.from?(user) ? "right" : "" %>"> -->
+
+<!-- <div class="message <%#= message.from?(user) ? 'right' : '' %>"> -->
+    <% if user.role == "guest" %>
+      <div class="message right">
+        <h5 class="user-name"> <%= user.first_name %> </h5>
+        <div class="message-content"><%= message.content %></div>
+      </div>
+     <% else %>
+        <div class="message">
+          <h5 class="user-name"> <%= user.name %> </h5>
+          <div class="message-content"><%= message.content %></div>
+        </div>
+   <% end %>
+<!-- </div> -->
+
