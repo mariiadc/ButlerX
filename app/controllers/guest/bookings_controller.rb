@@ -3,8 +3,8 @@ module Guest
     before_action :set_booking, only: [:show, :create]
 
     def index
-      @bookings = policy_scope(Booking).where(user_id: current_user)
-       authorize [:guest, @booking]
+      @bookings = policy_scope([:guest, Booking])
+
     end
 
     def new

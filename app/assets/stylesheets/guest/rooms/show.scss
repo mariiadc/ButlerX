@@ -1,0 +1,46 @@
+/*
+** Layout, Text & Colors
+*/
+
+
+.room-card {
+ background-color: $beige-c;
+  // width: 90%;
+ // z-index: 1;
+ color: #fff;
+}
+
+
+// .border {
+//   // position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   padding: 6px;
+//   border: 1px solid #fff;
+//   opacity: 0.5;
+//   left: -6px;
+//   top: -6px;
+// }
+
+.room-info {
+  border-top: 1px solid #c6b6a7;
+}
+#border-bottom {
+  border-bottom: 1px solid #c6b6a7;
+}
+
+// .cover-pic {
+//   position: absolute;
+//   width: 90%;
+//   z-index: 2;
+//   left: 2%;
+//   top: 1%;
+// }
+
+.room-info:hover {
+
+  border-radius: 4px;
+  background: linear-gradient(145deg, #b2a496, #d4c3b3);
+  box-shadow:  20px 20px 60px #a89b8e,
+             -20px -20px 60px #e4d1c0;
+}

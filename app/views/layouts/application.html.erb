@@ -12,17 +12,12 @@
 
   </head>
   <body>
-
-    <% if current_user.blank? %>
-      <%=  render 'shared/navbar' %>
-    <% else %>
-     <%= "" %>
-    <% end %>
-
+    
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <%= javascript_include_tag 'application' %>
 
+    <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <%= yield :after_js %>
   </body>
 </html>
