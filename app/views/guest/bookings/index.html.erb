@@ -1,21 +1,22 @@
 <div class="container">
-<h1 class="texth1" >Your Upcoming Booking</h1>
+  <h1 class="texth1" >Your Upcoming Booking</h1>
 </div>
 
-
+<% @bookings.each do |booking| %>
 <div class="card-trip">
   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
   <div class="card-trip-infos">
     <div>
-      <h2>Title here</h2>
+      <h2> <%= link_to "Next booking here", guest_booking_path(booking) %></h2>
       <p>Short description here!</p>
     </div>
   </div>
 </div>
+<% end %>
 
 
 <div id="card-example" class="card-group">
-  <a class="card-group-item card-group-item-action explore" href="#card-item-1">My bookings</a>
+  <a class="card-group-item card-group-item-action explore mx-auto" href="#card-item-1">My bookings</a>
 </div>
 <br>
 
@@ -26,7 +27,7 @@
 <div class="card-product" id="">
       <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" class="card-img" alt="...">
   <div class="card-product-infos">
-    <h2>Product name</h2>
+    <h2>Booking name</h2>
     <p>Product description with <strong>relevant info</strong> only.</p>
   </div>
 </div>
@@ -34,7 +35,7 @@
 <div class="card-product">
       <img src="https://images.unsplash.com/photo-1562285474-d12dece5d508?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2467&q=80" class="card-img" alt="...">
   <div class="card-product-infos">
-    <h2>Product name</h2>
+    <h2>Booking name</h2>
     <p>Product description with <strong>relevant info</strong> only.</p>
   </div>
 </div>
@@ -42,7 +43,7 @@
 <div class="card-product">
       <img src="https://images.unsplash.com/photo-1562285474-d12dece5d508?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2467&q=80" class="card-img" alt="...">
   <div class="card-product-infos">
-    <h2>Product name</h2>
+    <h2>Booking name</h2>
     <p>Product description with <strong>relevant info</strong> only.</p>
   </div>
 </div>
@@ -50,7 +51,7 @@
 <div class="card-product">
       <img src="https://images.unsplash.com/photo-1562285474-d12dece5d508?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2467&q=80" class="card-img" alt="...">
   <div class="card-product-infos">
-    <h2>Product name</h2>
+    <h2>Booking name</h2>
     <p>Product description with <strong>relevant info</strong> only.</p>
   </div>
 </div>
@@ -58,7 +59,7 @@
 <div class="card-product">
       <img src="https://images.unsplash.com/photo-1562285474-d12dece5d508?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2467&q=80" class="card-img" alt="...">
   <div class="card-product-infos">
-    <h2>Product name</h2>
+    <h2>Booking name</h2>
     <p>Product description with <strong>relevant info</strong> only.</p>
   </div>
 </div>
@@ -66,7 +67,7 @@
 <div class="card-product">
       <img src="https://images.unsplash.com/photo-1562285474-d12dece5d508?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2467&q=80" class="card-img" alt="...">
   <div class="card-product-infos">
-    <h2>Product name</h2>
+    <h2>Booking name</h2>
     <p>Product description with <strong>relevant info</strong> only.</p>
   </div>
 </div>

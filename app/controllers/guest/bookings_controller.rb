@@ -5,6 +5,7 @@ module Guest
     def index
       @bookings = policy_scope([:guest, Booking])
 
+
     end
 
     def new
@@ -14,6 +15,7 @@ module Guest
 
     def show
        authorize [:guest, @booking]
+       @room = Room.where(booking_id: @booking).first
     end
 
     def create
