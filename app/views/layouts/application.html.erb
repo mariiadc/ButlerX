@@ -12,12 +12,12 @@
 
   </head>
   <body>
-
-    <% if current_user.blank? %>
-      <%=  render 'shared/navbar' %>
-    <% else %>
-     <%= "" %>
-    <% end %>
+<!--
+    < % if current_user.blank? %>
+     < %= "" %>
+    < % else %>
+     < %=  render 'shared/navbar' %>
+    < % end %> -->
 
     <%= render 'shared/flashes' %>
     <%= yield %>
