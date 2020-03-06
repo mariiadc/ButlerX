@@ -12,8 +12,9 @@
       <div class="container py-3 text-center">
         <i class="fas fa-person-booth"></i>
       </div>
+
       <div class="container py-3 text-center">
-        <h5>Room</h5>
+        <h5 id="link-menu"><%= link_to "Room", guest_booking_room_path(booking_id: @booking.id, room_id: @room.id), id: "link-menu" %></h5>
       </div>
     </div>
   </div>

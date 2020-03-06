@@ -1,6 +1,7 @@
-<nav class="navbar fixed-bottom navbar-expand-lg navbar-light bg-light">
+<nav class="navbar fixed-bottom justify-space-between navbar-light bg-light" style="width: 100%">
+
   <a class="navbar-brand" href="#"><i class="fas fa-home"></i></a>
-  <a class="navbar-brand" href="#"><i class="fas fa-comments"></i></a>
+  <%= link_to chat_room_path(ChatRoom.find(1)), class: "navbar-brand" do %><i class="fas fa-comments"></i> <% end %>
   <a class="navbar-brand" href="#"><i class="fas fa-user"></i></a>
 
 </nav>
