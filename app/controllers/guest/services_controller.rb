@@ -2,8 +2,9 @@ module Guest
   class ServicesController < ApplicationController
     before_action :find, only: [:show]
      def index
-      @services = Service.all
-      authorize [:guest, @service]
+      @services = policy_scope([:guest, Service])
+      @booking = Booking.find(params[:booking_id])
+      @services = Service.where(hotel_id: @booking.hotel_id)
     end
 
     def show

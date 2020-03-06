@@ -3,9 +3,11 @@ module Guest
     before_action :find, only: [:show]
 
     def index
-      @events = Event.all
-       authorize [:guest, @events]
+      @events = policy_scope([:guest, Event])
+      @booking = Booking.find(params[:booking_id])
+      @events = Event.where(hotel_id: @booking.hotel_id)
     end
+
 
     def show
     end
@@ -14,7 +16,7 @@ module Guest
 
     def find
       @event = Event.find(params[:id])
-      authorize [:guest, @events]
+      authorize [:guest, @event]
     end
   end
 end
