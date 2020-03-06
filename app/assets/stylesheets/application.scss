@@ -15,10 +15,12 @@
 
 @import "guest/bookings/show";
 
+@import "guest/rooms/show";
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $headers-font;
-
+  margin: 0px;
 }
 
 p {
