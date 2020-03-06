@@ -11,10 +11,12 @@ require 'pry-byebug'
 
 puts "Destroying All"
 
+ChatRoom.destroy_all
 Room.destroy_all
 Service.destroy_all
 Event.destroy_all
 User.destroy_all
+Booking.destroy_all
 
 
 
@@ -50,25 +52,35 @@ user.save!
 user2 = User.new(email: "franbilio@gmail.com", password: "123456", first_name: "John", last_name: "Smith")
 user2.save!
 
-puts "Creating Rooms"
+
+puts "adding booking"
+booking = Booking.new(check_in: Date.parse('2020-03-04'), check_out: Date.parse('2020-03-20'), booking_number: '2662823182', hotel: user, guest: user2)
+booking.save!
+
+
+
+puts "Creating Room"
 
 # ROOMS Creating
 
-room_names = []
-html_doc.search(".hotelchars .description .room-info .jqrt").each do |elem|
-  room_names << elem.text.strip
-end
+# room_names = []
+# html_doc.search(".hotelchars .description .room-info .jqrt").each do |elem|
+#   room_names << elem.text.strip
+# end
 
 # Creating Rooms for hotel!
 
-room_names.each do |elem|
-    5.times do |i|
-      i += 1
-      i = i.to_s
-      room = Room.new(name: elem, room_number: i, hotel: user, availability: true)
-      room.save!
-    end
-end
+# room_names.each do |elem|
+#     5.times do |i|
+#       i += 1
+#       i = i.to_s
+#       room = Room.new(name: elem, room_number: i, hotel: user, availability: true)
+#       room.save!
+#     end
+# end
+
+room = Room.new(name: "Apartamento Estúdio com Vista Mar", room_number: 355, hotel: user, booking_id: booking.id,  availability: true)
+room.save!
 
 puts "Creating 2 Events for Ines Hotel"
 
@@ -209,5 +221,10 @@ service.save!
 
 puts "Done! F to the Yeah!"
 
-booking = Booking.new(check_in: Date.parse('2020-03-04'), check_out: Date.parse('2020-03-20'), booking_number: '2662823182', hotel: user, guest: user2)
-booking.save!
+
+
+chat_room = ChatRoom.create!(name: "Customer Support")
+message = Message.new(content: "Hi! Welcome to our establishment. Anything you need don't hesitate to get in touch with us. Hope you enjoy your stay.",
+  chat_room_id: chat_room.id, user_id: user.id)
+message.save!
+

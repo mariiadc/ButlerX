@@ -11,13 +11,16 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/messages";
 
 @import "guest/bookings/show";
+
+@import "guest/rooms/show";
 
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $headers-font;
-
+  margin: 0px;
 }
 
 p {
