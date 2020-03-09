@@ -16,6 +16,7 @@
 }
 
 .banner p {
+  font-style: italic;
   font-size: 20px;
   color: #F2F2F2;
   opacity: .7;
@@ -28,14 +29,14 @@
 .homebutton{
 border-radius: 15px;
 text-align: center;
-color: #1A2E40;
-border-color: #1A2E40;
+color: $white-c;
+border-color: $white-c;
 margin-right: 0px;
 
 }
 
 .homebutton:hover {
-  background-color: #1A2E40;
+  background-color: $beige-c;
   color:#F2F2F2;
   border-color: transparent;
 }
@@ -52,19 +53,19 @@ margin-right: none;
 }
 
 .explore{
-text-align: center;
+// text-align: center;
 background-color: transparent;
 margin-top: 20px;
 padding-bottom: 45px;
-color: #1A2E40;
+color: $white-c;
 border: none;
 font-size: 20px;
-margin-left: 90px;
+// margin-left: 90px;
 margin-bottom: 20px;
 }
 
 .textexplore{
-  color: #1A2E40;
+  color: $white-c;
   text-align: justify;
 }
 

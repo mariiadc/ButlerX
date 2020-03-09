@@ -5,27 +5,30 @@
 #index-events {
   background-size: cover;
   background-position: center;
-  height: 150px;
-  width: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 14px;
+  height: 200px;
+  width: 100%;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // color: white;
+  // font-size: 14px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-top:5px;
   margin-inline-start: 3px;
+
 }
 
   #suggested-event {
   color:white;
 }
 
-#index-event-title {
-    color:#1A2E40;
+.index-event-title {
+    color:$white-c;
+    padding: 10px;
+    margin: 10px;
   }
 
 #upcoming-e {
