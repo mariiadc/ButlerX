@@ -2,7 +2,7 @@
   <div class="row justify-content-around">
     <div class="box _unit py-3 my-3 " id="menu-box">
       <div class="container py-3 text-center">
-        <i class="fas fa-key"></i>
+        <i class="fas fa-key  _icon-menu"></i>
       </div>
       <div class="container py-3  text-center">
         <h5>Key</h5>
@@ -10,18 +10,18 @@
     </div>
     <div class="box _unit py-3 my-3 " id="menu-box">
       <div class="container py-3 text-center">
-        <i class="fas fa-person-booth"></i>
+        <i class="fas fa-person-booth _icon-menu"></i>
       </div>
 
       <div class="container py-3 text-center">
-        <h5 id="link-menu"><%= link_to "Room", guest_booking_room_path(booking_id: @booking.id, room_id: @room.id), id: "link-menu" %></h5>
+        <h5><%= link_to "Room", guest_booking_room_path(booking_id: @booking.id, room_id: @room.id), id: "link-menu" %></h5>
       </div>
     </div>
   </div>
   <div class="row justify-content-around">
     <div class="box _unit py-3 my-3 " id="menu-box">
       <div class="container py-3 text-center">
-        <i class="fas fa-utensils"></i>
+        <i class="fas fa-utensils _icon-menu"></i>
       </div>
       <div class="container py-3 text-center ">
         <h5>Dining</h5>
@@ -29,7 +29,7 @@
     </div>
     <div class="box _unit py-3 my-3" id="menu-box">
       <div class="container py-3 text-center">
-        <i class="fas fa-spa"></i>
+        <i class="fas fa-spa _icon-menu"></i>
       </div>
       <div class="container py-3 text-center">
         <h5>Wellness</h5>
@@ -39,18 +39,18 @@
   <div class="row justify-content-around">
     <div class="box _unit py-3 my-3 " id="menu-box">
       <div class="container py-3 text-center">
-        <i class="far fa-calendar-alt"></i>
+        <i class="far fa-calendar-alt _icon-menu"></i>
       </div>
       <div class="container py-3 text-center">
-        <h5>Events</h5>
+        <h5><%= link_to "Events", guest_booking_events_path(booking_id: @booking.id), id: "link-menu" %></h5>
       </div>
     </div>
     <div class="box _unit py-3 my-3" id="menu-box">
       <div class="container py-3 text-center">
-        <i class="fas fa-concierge-bell"></i>
+        <i class="fas fa-concierge-bell _icon-menu"></i>
       </div>
-      <div class="container text-center">
-        <h5>Services</h5>
+      <div class="container py-3 text-center">
+        <h5><%= link_to "Services", guest_booking_services_path(booking_id: @booking.id), id: "link-menu" %></h5>
       </div>
     </div>
   </div>
