@@ -12,7 +12,7 @@
   </head>
   <body>
 
-    <% if current_user.blank? %>
+    <% if !user_signed_in? || controller_name == 'pages' %>
     <%= "" %>
     <% else %>
       <%=  render 'shared/2ndnavbar' %>
