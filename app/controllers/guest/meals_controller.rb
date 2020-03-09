@@ -3,10 +3,12 @@ module Guest
     before_action :find, only: [:show]
     def index
       @meals = policy_scope([:guest, Meal])
+      @chat_room = ChatRoom.find_by(booking_id: params[:booking_id])
     end
 
     def show
       authorize @meal
+      @chat_room = ChatRoom.find_by(booking_id: params[:booking_id])
     end
 
     private
