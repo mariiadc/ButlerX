@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     resources :events
     resources :meals
     resources :rooms
-    resources :bookings
+    resources :bookings do
+      resources :chat_rooms, only: [:show] do
+        resources :messages, only: [:create]
+      end
+    end
     resources :bills, only: [:index, :show]
   end
 
@@ -24,12 +28,13 @@ Rails.application.routes.draw do
       resources :bills, only: [:show, :create] do
         resources :payments, only: :new
       end
+      resources :chat_rooms, only: [:show] do
+        resources :messages, only: [:create]
+      end
     end
   end
 
-  resources :chat_rooms, only: [:show] do
-    resources :messages, only: [:create]
-  end
+
 
   require "sidekiq/web"
   authenticate :user, lambda { |u| true } do

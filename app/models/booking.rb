@@ -8,5 +8,6 @@ class Booking < ApplicationRecord
   validates :check_in, presence: true, allow_blank: false
   validates :check_out, presence: true, allow_blank: false
   validates :booking_number, presence: true, allow_blank: false
+  has_one :chat_room
 
 end
