@@ -70,6 +70,11 @@ box-shadow: inset 20px 20px 60px #162736,
   text-decoration: none;
 }
 
+#link-menu {
+  color: $gray;
+  font-weight: normal;
+}
+
 #menu-box {
   width: 180px;
   height: 180px;
@@ -106,6 +111,7 @@ box-shadow: inset 20px 20px 60px #162736,
 // }
 /******************************************************/
 /* circle01; top right pink */
+
 // .circle01{
 //   z-index: 1;
 //   right: 5%;
@@ -153,6 +159,7 @@ box-shadow: inset 20px 20px 60px #162736,
 //   transform: translateX(-50%);
 //   background: linear-gradient(#F2D091, #8C661F);  /*light light gold to dark dark-gold*/
 // }
+
 
 // .orbitPath02-border{
 //   top: calc(43vh + 12vw); // lifting bottom circle up
