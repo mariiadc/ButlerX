@@ -17,7 +17,7 @@
 
 .banner p {
   font-size: 20px;
-  color: #D9D0C7;
+  color: #F2F2F2;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   text-align: center;
@@ -58,7 +58,14 @@ margin-top: 20px;
 padding-bottom: 45px;
 color: #1A2E40;
 border: none;
+font-size: 20px;
+margin-left: 90px;
+margin-bottom: 20px;
+}
 
+.textexplore{
+  color: #1A2E40;
+  text-align: justify;
 }
 
 .explore:hover{

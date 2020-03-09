@@ -1,36 +1,22 @@
-#booking-card{
-  background-color: #D9D0C7;
-  width: 80%;
-  line-height: 0px;
-  border-radius: 20px;
-  text-align: center;
-  border: none;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
 
 .texth1{
 color: #1A2E40;
 font-size: 20px;
-font-weight: bold;
+font-weight: normal;
 text-align: center;
-margin-top: 20px;
+margin-top: 30px;
+
 }
 
-.text-center{
+.booking-text-center{
 border: none;
 color: #1A2E40;
 }
 
-.booking-body {
-color: #1A2E40;
+.text-booking{
+  margin-left: 25px;
 }
 
-#list-example{
-  background-color: #F2F2F2;
-  width: 50%;
-  padding: 0px;
-}
 
 .boxofcards{
  width: 100%;
@@ -39,17 +25,21 @@ color: #1A2E40;
 
 .card-product {
   overflow: hidden;
-  height: 50;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 70%;
+  background: F2F2F2;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
+  margin: 5px;
+  border-radius: 5px;
 }
 
 .card-product img {
-  height: 50%;
-  width: 50px;
+  height: 120%;
+  width: 115px;
   object-fit: cover;
+  border-radius: 6px;
+  margin-left: 5px;
 }
 
 .card-product h2 {
@@ -70,4 +60,62 @@ color: #1A2E40;
   padding: 16px;
 }
 
+// neomorphism
 
+$color-bg: #D9D0C7;
+$color-shadow: #BABECC;
+$color-white: #FFF;
+
+.card-product  {
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+// Upcoming booking
+
+.card-trip {
+  overflow: hidden;
+  background: #F2F2F2;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+}
+
+.card-trip > img {
+  height: 100px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}

@@ -25,6 +25,11 @@
 
 }
 
+#link-menu {
+  color: $gray;
+  font-weight: normal;
+}
+
 #menu-box {
   width: 150px;
   height: 150px;
@@ -61,7 +66,7 @@
 /* circle01; top right pink */
 .circle01{
   z-index: 1;
-  right: 4%;
+  right: 5%;
   top: 3vh;
   width: 18vw;
   padding-top: 18vw;

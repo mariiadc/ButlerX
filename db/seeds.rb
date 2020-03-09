@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 require 'nokogiri'
-require 'pry-byebug'
 
 puts "Destroying All"
 
@@ -47,7 +46,7 @@ html_doc.search(".hp__hotel_ratings .hp__hotel_ratings__stars .bk-icon-wrapper")
 end
 
 puts "Creating Hotel with scrapped data and John Smith user"
-user = User.new(email: "facsr92@gmail.com", password: "123456", role: 1, name: name, address: address, stars: stars )
+user = User.new(email: "facsr92@gmail.com", password: "123456", role: 1, name: name, address: address, stars: stars, first_name: "Hotel", last_name: "Smith" )
 user.save!
 user2 = User.new(email: "franbilio@gmail.com", password: "123456", first_name: "John", last_name: "Smith")
 user2.save!
