@@ -1,4 +1,6 @@
+
 <div class="container">
+   <%= render 'shared/topnavbar'%>
   <h5 class="texth1 text-center mt-4" >Your Upcoming Booking</h5>
 </div>
 
@@ -11,9 +13,7 @@
       <p id="dates"><%= @bookings[0].check_in %> - <%= @bookings[0].check_out %></p>
     </div>
   </div>
-
 </div>
-
 
 
 <div id="card-example" class="card-group">
@@ -80,6 +80,7 @@
 
 </div>
 </div>
+<%=  render 'shared/floatbuttonplus' %>
 
 
 <%=  render 'shared/navbar' %>

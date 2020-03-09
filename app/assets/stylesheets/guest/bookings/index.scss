@@ -3,20 +3,9 @@
   color: $white-c;
 }
 
-// .booking-text-center{
-// border: none;
-// color: $white-c;
-// }
-
-// .text-booking{
-//   margin-left: 25px;
-// }
-
-
 .boxofcards{
  width: 100%;
 }
-
 
 .card-product {
   overflow: hidden;
@@ -79,7 +68,7 @@
   background: transparent;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   width: 85%;
-
+  margin-top: 100px!important;
 }
 
 
@@ -94,7 +83,7 @@
 }
 
 #address {
-  font-style: italic;
+  font-style: normal;
   font-size: 14px;
   margin-bottom: 0px;
   padding-left: 10px;

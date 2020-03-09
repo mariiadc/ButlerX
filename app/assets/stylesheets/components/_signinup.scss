@@ -4,15 +4,31 @@
 
   .sisu-btn {
   font-family: 'Montserrat';
-  background:  #1A2E40;
-  border-color: transparent;
-  color: #F2E8DF;
-  border-radius:10px;
-  font-weight: bold;
+  background:  #1D3447;
+  font-weight: 400;
   padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  color: $white-c;
+  border-color: $white-c;
+  margin-right: 0px;
+
 }
 
   .sisu-details {
-  color:#1A2E40;
+  color: $white-c;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
+.additionaltext{
+  font-weight: 8px;
+  color: $white-c;
+    text-align: right;
+
+}
+
+#bottomtext{
+ text-align: center;
+
+}

@@ -1,7 +1,7 @@
 
 footer {
 
-  background-color: #F2F2F2;
+  background-color: #1D3447;
   text-align: center;
   height: 130px;
   max-width: 100%;
@@ -10,7 +10,7 @@ footer {
 
 
   a {
-    color: #0D0D0D;
+    color: #F2F2F2;
     display:inline;
     margin-right: 15px;
     font-family: 'Montserrat';
@@ -18,7 +18,7 @@ footer {
   }
 
 a:hover {
-  color: #0D0D0D;
+  color: #F2F2F2;
   text-decoration: none;
   font-weight: bold;
   padding-bottom: 10px;
@@ -27,7 +27,10 @@ a:hover {
 
 i {
   font-size:23px;
-} }
+  color: #F2F2F2;
+}
+}
+
 .icons {
   padding-top: 50px;
 }
