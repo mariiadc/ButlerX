@@ -15,70 +15,28 @@
   </div>
 </div>
 
-
 <div id="card-example" class="card-group">
   <a class="card-group-item text-center card-group-item-action explore texth1 ml-2" href="#card-item-1">My bookings</a>
 </div>
 <br>
-
 <div data-spy="scroll" data-target="#card-example" data-offset="0" class="scrollspy-example">
   <h4 id="card-item-1"></h4>
-<div class="container boxofcards">
-  <% @bookings.each do |booking| %>
-  <div class="card-product" id="">
-        <%= cl_image_tag("v1583612143/ButlerX/hotel_banner.jpg") %>
-    <div class="card-product-infos">
-      <h6> <%= link_to  booking.hotel.name, guest_booking_path(booking), id: "link-hotel" %></h6>
-      <p id="address"><%= booking.hotel.address%></p>
-      <p id="dates"><%= booking.check_in %> - <%= booking.check_out %></p>
+  <div class="container boxofcards">
+    <% @bookings.each do |booking| %>
+    <div class="card-product" id="">
+           <%= cl_image_tag booking.hotel.photo.key, height: 300, width: 400, crop: :fill %>
+      <div class="card-product-infos">
+        <h6> <%= link_to  booking.hotel.name, guest_booking_path(booking), id: "link-hotel" %></h6>
+        <p id="address"><%= booking.hotel.address%></p>
+        <p id="dates"><%= booking.check_in %> - <%= booking.check_out %></p>
+      </div>
     </div>
+    <% end %>
+    <br>
+    <br>
+    <br>
+    <br>
   </div>
-  <% end %>
-<div class="card-product">
-      <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" class="card-img" alt="...">
-  <div class="card-product-infos">
-    <h6 id="link-hotel">Booking name</h6>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-  </div>
-</div>
-
-<div class="card-product">
-      <img src="https://images.unsplash.com/photo-1562285474-d12dece5d508?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2467&q=80" class="card-img" alt="...">
-  <div class="card-product-infos">
-    <h6 id="link-hotel">Booking name</h6>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-  </div>
-</div>
-
-<div class="card-product">
-      <img src="https://images.unsplash.com/photo-1562285474-d12dece5d508?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2467&q=80" class="card-img" alt="...">
-  <div class="card-product-infos">
-    <h6 id="link-hotel">Booking name</h6>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-  </div>
-</div>
-
-<div class="card-product">
-      <img src="https://images.unsplash.com/photo-1562285474-d12dece5d508?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2467&q=80" class="card-img" alt="...">
-  <div class="card-product-infos">
-    <h6 id="link-hotel">Booking name</h6>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-  </div>
-</div>
-
-<div class="card-product">
-      <img src="https://images.unsplash.com/photo-1562285474-d12dece5d508?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2467&q=80" class="card-img" alt="...">
-  <div class="card-product-infos">
-    <h6 id="link-hotel">Booking name</h6>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-  </div>
-</div>
-<br>
-<br>
-<br>
-<br>
-
-</div>
 </div>
 <%=  render 'shared/floatbuttonplus' %>
 

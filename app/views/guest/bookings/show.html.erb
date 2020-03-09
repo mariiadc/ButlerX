@@ -4,8 +4,12 @@
       <h4 id="ttl", class="text-center px-3 py-3"><%= @booking.hotel.name %></h4>
     </div>
 
-    <%= cl_image_tag("v1583612143/ButlerX/hotel_banner.jpg", class: "style-image") %>
+    <%= cl_image_tag(@booking.hotel.photo.key, class: "style-image") %>
   </div>
+  <br>
+<br>
+<br>
+<br>
   <%= render 'shared/neumorph' %>
 </div>
 
