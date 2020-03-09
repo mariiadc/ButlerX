@@ -2,25 +2,28 @@
 ** Layout, Text & Colors
 */
 
-
+.body-room {
+  // position: relative;
+  padding-top: 10px;
+  }
 .room-card {
- background-color: $beige-c;
-  // width: 90%;
- // z-index: 1;
- color: #fff;
+  z-index: 2;
+  background-color: #b2a496;
+  color: #fff;
+
 }
 
+.border {
 
-// .border {
-//   // position: absolute;
-//   width: 100%;
-//   height: 100%;
-//   padding: 6px;
-//   border: 1px solid #fff;
-//   opacity: 0.5;
-//   left: -6px;
-//   top: -6px;
-// }
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  border: 1px solid #fff;
+  opacity: 0.5;
+  left: -8px;
+  top: -6px;
+}
 
 .room-info {
   border-top: 1px solid #c6b6a7;
@@ -28,19 +31,33 @@
 #border-bottom {
   border-bottom: 1px solid #c6b6a7;
 }
-
-// .cover-pic {
-//   position: absolute;
-//   width: 90%;
-//   z-index: 2;
-//   left: 2%;
-//   top: 1%;
-// }
-
-.room-info:hover {
-
-  border-radius: 4px;
-  background: linear-gradient(145deg, #b2a496, #d4c3b3);
-  box-shadow:  20px 20px 60px #a89b8e,
-             -20px -20px 60px #e4d1c0;
+#cover-pic {
+height: 200px;
+width: inherit;
 }
+._one {
+max-width: 600px;
+}
+
+.card-body-room {
+
+background: linear-gradient(145deg, #bfb0a1, #e3d1c0);
+// box-shadow:  20px 20px 60px #b4a698,
+//              -20px -20px 60px #f4e0ce;
+}
+
+
+.paragraph-room {
+  color: #0D0D0D;
+  img {
+    position: fit;
+    filter: opacity(65%);
+  }
+}
+// .room-info:hover {
+
+//   border-radius: 4px;
+//   background: linear-gradient(145deg, #b2a496, #d4c3b3);
+//   box-shadow:  20px 20px 60px #a89b8e,
+//              -20px -20px 60px #e4d1c0;
+// }

@@ -11,6 +11,7 @@ require 'nokogiri'
 puts "Destroying All"
 
 ChatRoom.destroy_all
+Booking.destroy_all
 Room.destroy_all
 Service.destroy_all
 Event.destroy_all
@@ -222,7 +223,7 @@ puts "Done! F to the Yeah!"
 
 
 
-chat_room = ChatRoom.create!(name: "Customer Support")
+chat_room = ChatRoom.create!(name: "Customer Support", booking_id: booking.id)
 message = Message.new(content: "Hi! Welcome to our establishment. Anything you need don't hesitate to get in touch with us. Hope you enjoy your stay.",
   chat_room_id: chat_room.id, user_id: user.id)
 message.save!

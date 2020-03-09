@@ -1,5 +1,6 @@
 
 .texth1{
+
 color: #1A2E40;
 font-size: 20px;
 font-weight: normal;
@@ -17,6 +18,19 @@ color: #1A2E40;
   margin-left: 25px;
 }
 
+  color: $white-c;
+}
+
+// .booking-text-center{
+// border: none;
+// color: $white-c;
+// }
+
+// .text-booking{
+//   margin-left: 25px;
+// }
+
+
 
 .boxofcards{
  width: 100%;
@@ -26,7 +40,9 @@ color: #1A2E40;
 .card-product {
   overflow: hidden;
   height: 70%;
+
   background: F2F2F2;
+
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
@@ -40,18 +56,32 @@ color: #1A2E40;
   object-fit: cover;
   border-radius: 6px;
   margin-left: 5px;
+
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-left: 5px;
 }
 
-.card-product h2 {
-  font-size: 16px;
+#link-hotel {
+  padding-left: 10px;
+  color: $beige-c;
+  text-decoration: none;
   font-weight: bold;
-  margin: 0;
+
+}
+
+#link-hotel-current {
+  color: $beige-c;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .card-product p {
-  font-size: 12px;
+  color: $beige-c;
   line-height: 1.4;
-  opacity: .7;
+  // opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
 }
@@ -65,6 +95,8 @@ color: #1A2E40;
 $color-bg: #D9D0C7;
 $color-shadow: #BABECC;
 $color-white: #FFF;
+
+
 
 .card-product  {
   box-sizing: border-box;
@@ -86,11 +118,21 @@ $color-white: #FFF;
 
 }
 
+
+  background: transparent;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  width: 85%;
+
+}
+
+
+
 .card-trip > img {
   height: 100px;
   width: 100%;
   object-fit: cover;
 }
+
 
 .card-trip h2 {
   font-size: 16px;
@@ -118,4 +160,29 @@ $color-white: #FFF;
   right: 16px;
   top: -20px;
   width: 40px;
+
+
+.card-trip p {
+  // color: $grey-c;
+}
+
+#address {
+  font-style: italic;
+  font-size: 14px;
+  margin-bottom: 0px;
+  padding-left: 10px;
+}
+
+#dates {
+  padding-left: 10px;
+  padding-top: 2px;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+.card-trip-infos {
+  border-left: 1px solid $beige-c;
+  border-right: 1px solid $beige-c;
+  border-bottom: 1px solid $beige-c;
+
 }

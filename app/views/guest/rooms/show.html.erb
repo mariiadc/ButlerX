@@ -1,15 +1,10 @@
 <div class="body-room my-4 mx-2">
-<!-- <= image_tag "https://s3-us-west-2.amazonaws.com/s.cdpn.io/53148/deathtostock-00.jpg", class: "cover-pic" %> -->
-  <div class="container card room-card">
+  <div class="container card _one px-0">
     <div class="border"></div>
-    <div class=" container information my-auto ">
-      <h5 class="room-info  text-center mt-4 py-4">Room Info</h5>
-      <h5 class="room-info  text-center py-4">Wi-fi Password</h5>
-      <h5 class="room-info  text-center py-4">TV Remote</h5>
-      <h5 class="room-info text-center py-4">Room AC</h5>
-      <h5 class="room-info  text-center py-4 mb-4" id="border-bottom">Room Service</h5>
+    <%= image_tag "https://s3-us-west-2.amazonaws.com/s.cdpn.io/53148/deathtostock-00.jpg", id: "cover-pic" %>
+    <div class="container card room-card">
+      <%= render 'shared/slidecards' %>
+    </div>
     </div>
   </div>
 </div>
-
-

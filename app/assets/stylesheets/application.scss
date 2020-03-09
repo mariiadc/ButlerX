@@ -12,28 +12,28 @@
 @import "components/index";
 @import "pages/index";
 @import "components/messages";
-
+@import "components/navbar";
 @import "guest/bookings/show";
 
 @import "guest/rooms/show";
 
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $headers-font;
+  font-family: 'Spartan';
   margin: 0px;
 }
 
 p {
-  font-family: $body-font;
+  font-family: 'Montserrat';
 
 }
 
 body {
-  background-color: $white-c;
+  background-color: #1d3347;
 }
 
 i {
-  color: $blue-c;
+  color: $beige-c;
   // opacity: 1!important;
 }
 [class*="col-"] {
