@@ -16,6 +16,7 @@ module Guest
     def show
        authorize [:guest, @booking]
        @room = Room.where(booking_id: @booking).first
+       @chat_room = ChatRoom.find_by(booking_id: params[:id])
     end
 
     def create

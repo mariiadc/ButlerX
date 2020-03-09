@@ -6,6 +6,7 @@ module Guest
       @events = policy_scope([:guest, Event])
       @booking = Booking.find(params[:booking_id])
       @events = Event.where(hotel_id: @booking.hotel_id)
+      @chat_room = ChatRoom.find_by(booking_id: params[:booking_id])
     end
 
 
