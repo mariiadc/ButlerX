@@ -22,7 +22,7 @@
       <div class="card-product-infos-meal ">
         <div>
           <h6><%= meal.name %> </h6>
-          <p>Price <%= meal.price %> €</p>
+          <p>Price <%= humanized_money_with_symbol(meal.price) %> </p>
         </div>
       </div>
       <button type="button" class="btn btn-outline-light _order my-3 mx-2">Order</button>
@@ -37,7 +37,7 @@
       <div class="card-product-infos-meal ">
         <div>
           <h6><%= meal.name %> </h6>
-          <p>Price <%= meal.price %>€</p>
+          <p>Price <%= humanized_money_with_symbol(meal.price) %> </p>
         </div>
       </div>
         <button type="button" class="btn btn-outline-light _order my-3 mx-2">Order</button>

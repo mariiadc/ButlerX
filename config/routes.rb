@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       resources :events, only: [:index, :show]
       resources :meals, only: [:index, :show] do
         resources :bills, only: [:index, :show, :create] do
+        end
       end
       resources :rooms, only: [ :show]
       resources :bills, only: [:index, :show, :create] do
