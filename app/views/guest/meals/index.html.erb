@@ -12,7 +12,7 @@
           <%= cl_image_tag meal.photo.key, height: 120, width: 120, crop: :fill %>
             <div class="card-product-infos">
               <h6><%= meal.name %> </h6>
-              <p>Price <%= meal.price %> €</p>
+              <p>Price <%= humanized_money_with_symbol(meal.price) %></p>
             </div>
           </div>
           <% end %>
@@ -28,7 +28,7 @@
           <%= cl_image_tag meal.photo.key, height: 120, width: 120, crop: :fill %>
           <div class="card-product-infos">
             <h6><%= meal.name %> </h6>
-            <p>Price <%= meal.price %> €</p>
+            <p>Price <%= humanized_money_with_symbol(meal.price) %></p>
           </div>
         </div>
         <% end %>

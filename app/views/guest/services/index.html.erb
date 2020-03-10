@@ -31,9 +31,9 @@
                   <%= service.price %></p>
                   <br>
                   <%#= render "service_booking" %>
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Book</button>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#service_modal_<%= service.id %>">Book</button>
                           <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="service_modal_<%= service.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
@@ -43,9 +43,13 @@
                                   </button>
                               </div>
                               <div class="modal-body">
-                                <%= simple_form_for Bill.new, url: guest_booking_bills_path(@booking.id), method: :post do |f| %>
+                                <%= simple_form_for [:guest, @booking, service, Bill.new], method: :post do |f| %>
                                   <%= f.label service.name %>
-                                  <%= submit_tag 'Book', class: "btn btn-primary" %>
+                                  <%= f.input :amount_cents, :as => :hidden, :input_html => { :value => service.price_cents }  %>
+                                  <%= f.input :sku, :as => :hidden, :input_html => { :value => service.sku }  %>
+                                  <%#= f.input :, :as => :hidden, :input_html => { :value => "some value" }  %>
+                                  <%#= f.input :, :as => :hidden, :input_html => { :value => "some value" }  %>
+                                  <%= f.submit 'Book', class: "btn btn-primary" %>
                                 <% end %>
                                 </div>
                               <div class="modal-footer">

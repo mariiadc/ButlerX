@@ -14,38 +14,35 @@
     end
 
     def create
+      object = Service.find(params[:service_id]) if params[:service_id].present?
+      object = Meal.find(params[:meal_id]) if params[:meal_id].present?
+      booking = Booking.find(params[:booking_id])
 
-    user = current_user
-    service = Service.find(params[:service_id])
-    meal = Meal.find(params[:meal_id])
+      bill = object.bills.create!(sku: object.sku, amount: object.price, state: 'pending')
 
-    @booking = Booking.find(params[:booking_id])
-    @bill  = Bill.create!(service: service, service_sku: service.sku, amount: service.price, state: 'pending', user: current_user)
+      authorize  [:guest, bill]
 
-    authorize  [:guest, @bill]
+      line_items = {
+        name: object.sku,
+        amount: object.price_cents,
+        currency: 'eur',
+        quantity: 1
+      }
 
+      session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        line_items: [line_items],
+        success_url: guest_booking_bill_url(booking, bill),
+        cancel_url: guest_booking_bill_url(booking, bill)
+      )
 
-    line_items = room.roomservice.map do |service|
-      {
-      name: roomservice.service.sku,
-      amount: roomservice.service.price_cents,
-      currency: 'eur',
-      quantity: 1
-    }
-    end
+      bill.update(checkout_session_id: session.id)
 
-
-
-    session = Stripe::Checkout::Session.create(
-    payment_method_types: ['card'],
-    line_items: [line_items],
-    success_url: bill_url(order),
-    cancel_url: bill_url(order)
-  )
-
-  bill.update(checkout_session_id: session.id)
-  redirect_to new_bill_payment_path(order)
-
+      if object.is_a?(Service)
+        redirect_to guest_booking_services_path(booking)
+      else
+        redirect_to guest_booking_meals_path(booking)
+      end
     end
 
     private
