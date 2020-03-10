@@ -1,23 +1,3 @@
-<!-- <div class="container _index-s" align="center">
-  <div class="row justify-content-center mt-4">
-    <div class="col-xs-12 col-lg-6" id="col-per">
-      <h5 id="service-index-title"> Hotel Page Services </h5>
-        <div class="card-category p-2" id="index-services">
- REMOVED RUBY CODE FOR NAME AND PICTURE
-        <div class="card-category align-middle align-items-center" id="upcoming-s" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1526307616774-60d0098f7642?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80)">
-          <p class="card-title">Tennis Club</p>
-        </div>
-        <div class="card-category align-middle align-items-center" id="upcoming-s" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1525863267585-0fab58062fa0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1074&q=80)">
-            <p class="card-title">Outdoor Activities</p>
-        <class/div>
-            <div class="card-category align-middle align-items-center" id="upcoming-s" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1474557157379-8aa74a6ef541?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)">
-            <p class="card-title">Wellness</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
- -->
   <div class="row justify-content-center m-3 p-4">
     <h5 class="index-event-title text-center"> Hotel Services </h5>
       <div class="col-xs-12 col-lg-6" id="col-per">
@@ -31,13 +11,14 @@
                   <%= service.price %></p>
                   <br>
                   <%#= render "service_booking" %>
+                  <div></div>
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Book</button>
                           <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Book a service</h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                   </button>
@@ -45,8 +26,14 @@
                               <div class="modal-body">
                                 <%= simple_form_for Bill.new, url: guest_booking_bills_path(@booking.id), method: :post do |f| %>
                                   <%= f.label service.name %>
+                                  <%= f.label 'Start Date' %>
+                                  <input type="date" id="start_date" name="start_date" value="2020-03-10">
+                                  <input type="time" id="start_date" name="start_date" value="09:00">
+                                  <small>Duration 1 hour</small>
                                   <%= submit_tag 'Book', class: "btn btn-primary" %>
+
                                 <% end %>
+
                                 </div>
                               <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -61,63 +48,8 @@
         </div>
       </div>
   </div>
-
-
-
-
-      <!--     <div class="card-category align-middle align-items-center" id="upcoming-s" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1526307616774-60d0098f7642?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80)">
-            <p class="card-title">Tennis Club</p>
-          </div>
-
-        </div>
-      <div class="col-xs-12 col-lg-6" id="col-per">
-        <div class="card-category align-middle align-items-center" id="upcoming-e" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1541379889336-70f26e4c4617?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80)">
-         <p class="card-title">Chinese Night</p>
-         <p class="card-text" id="event-border">
-         Tuesday, 20pm</p>
-        </div>
-      </div>
-      <div class="col-xs-12 col-lg-6" id="col-per">
-        <div class="card-category align-middle align-items-center" id="upcoming-e" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1541379889336-70f26e4c4617?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80)">
-         <p class="card-title">Chinese Night</p>
-         <p class="card-text" id="event-border">
-         Tuesday, 20pm</p>
-        </div>
-      </div> -->
-
     </div>
         <%=  render 'shared/floatbuttonchat' %>
-
-      <!-- <div class="row ml-3 mr-3 pr-4 pl-4">
-        <div class="col-12" align="center">
-          <p class="blue-c"> For more information, please <a>contact Front Desk</a></p>
-        </div>
-      </div>
-        <div class="row justify-content-center m-3 p-4">
-          <h5 class="index-event-title text-center"> Hotel Facilities </h5>
-          <div class="col-6" id="col-per">
-            <div class="card-category" id="index-services">
-              <%= cl_image_tag @services.first.photo.key, crop: :fill %>
-              <p> <%= @services.first.name %> </p>
-            </div>
-          </div>
-          <div class="col-6" id="col-per">
-            <div class="card-category" id="index-services">
-              <%= cl_image_tag @services.first.photo.key, crop: :fill %>
-              <p> <%= @services.first.name %> </p>
-            </div>
-          </div>
-          <div class="col-6" id="col-per">
-            <div class="card-category" id="index-services">
-              <%= cl_image_tag @services.first.photo.key, crop: :fill %>
-              <p> <%= @services.first.name %> </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
- </div>
-</div>
 
 
 
