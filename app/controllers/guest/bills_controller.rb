@@ -13,13 +13,15 @@
       authorize [:guest, @bills]
     end
 
-
     def create
+
     user = current_user
     service = Service.find(params[:service_id])
     meal = Meal.find(params[:meal_id])
 
-    @bill  = Bill.create!(sku: service.sku, amount: service.price_cents, state: 'pending', booking_id: find)
+    @booking = Booking.find(params[:booking_id])
+    @bill  = Bill.create!(service: service, service_sku: service.sku, amount: service.price, state: 'pending', user: current_user)
+
     authorize  [:guest, @bill]
 
 

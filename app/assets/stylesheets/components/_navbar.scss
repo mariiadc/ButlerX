@@ -1,3 +1,53 @@
-.navbarbooking {
-  background:  #1c3144;
+.navbar{
+  background-color: #1D3447;
+}
+
+#dropupbutton{
+   background-color: #1D3447;
+   border: none;
+}
+
+
+.dropdown-toggle{
+color: #1D3447;
+}
+
+///
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  padding: 5px;
+  font-size: 1.25rem;
+  border: none;
+}
+
+.dropup {
+  position: relative;
+  display: inline-block;
+}
+
+.dropup-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 60px;
+  bottom: 40px;
+  z-index: 1;
+  right: 1px;
+  border-radius: 2px;
+}
+
+.dropup-content a {
+  color: black;
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+  right: 50px;
+  font-size: 14px;
+}
+
+.dropup-content a:hover {background-color: #ccc}
+
+.dropup:hover .dropup-content {
+  display: block;
 }
