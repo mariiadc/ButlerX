@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_171808) do
+ActiveRecord::Schema.define(version: 2020_03_10_143036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,10 @@ ActiveRecord::Schema.define(version: 2020_03_09_171808) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "booking_id"
-    t.string "service_sku"
+    t.string "billable_type"
+    t.bigint "billable_id"
+    t.string "sku"
+    t.index ["billable_type", "billable_id"], name: "index_bills_on_billable_type_and_billable_id"
     t.index ["booking_id"], name: "index_bills_on_booking_id"
   end
 

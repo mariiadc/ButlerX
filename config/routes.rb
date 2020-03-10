@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       resources :events, only: [:index, :show]
       resources :meals, only: [:index, :show]
       resources :rooms, only: [ :show]
-      resources :bills, only: [:show, :create] do
+      resources :bills, only: [:index, :show, :create] do
         resources :payments, only: :new
       end
       resources :chat_rooms, only: [:show] do
