@@ -12,7 +12,7 @@
           <%= simple_form_for [ :guest, @chat_room, Message.new ], url: guest_booking_chat_room_messages_path(@chat_room.booking_id, @chat_room),  remote: true do |f| %>
       <!--     <div class="row"> -->
           <%= f.input :content, label: false %>
-          <%= f.submit "Send!", class: "btn btn-dark btn-sm m-0" %>
+          <%= f.submit "Send", class: "btn btn-dark btn-sm m-0" %>
           <!-- </div> -->
           <% end %>
 

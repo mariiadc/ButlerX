@@ -1,7 +1,16 @@
 <nav class="navbar fixed-bottom justify-space-between navbarbooking" style="width: 100%">
 
  <!--  <a class="navbar-brand" href="#"><i class="fas fa-home"></i></a> -->
- <%= link_to :back, class: "navbar-brand" do %><i class="fas fa-home"></i> <% end %><i class="fas fa-door-open"></i> <!-- < end %> -->
-  <a class="navbar-brand" href="#"><i class="fas fa-user"></i></a>
+  <%= link_to guest_bookings_path, class: "navbar-brand" do %><i class="fas fa-home"></i> <% end %>
+
+  <% if controller_name == 'bookings' && action_name == 'index' %>
+  <%= "" %>
+  <% elsif controller_name == 'bookings' && action_name == 'new' %>
+  <%= "" %>
+  <% else %>
+  <%= link_to guest_booking_path(@booking), class: "navbar-brand" do %><i class="fas fa-door-open"></i> <% end %>
+  <% end %>
+
+  <%= link_to guest_bookings_path, class: "navbar-brand" do %><i class="fas fa-user"></i> <% end %>
 
 </nav>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 
   get 'index', to: 'pages#index', as: :index
+  # get 'profile', to: 'pages#profile', as: :profile
   namespace :hotel do
     resources :services
     resources :events
@@ -18,6 +19,8 @@ Rails.application.routes.draw do
     end
     resources :bills, only: [:index, :show]
   end
+
+
 
   namespace :guest do
     resources :bookings, only: [:index, :show, :new, :create] do

@@ -17,7 +17,7 @@ Service.destroy_all
 Event.destroy_all
 User.destroy_all
 Booking.destroy_all
-
+Meal.destroy_all
 
 
 
@@ -271,52 +271,195 @@ event5.save!
 
 puts "Creating Meals"
 
-
+ puts "Meal 1"
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583322866/ButlerX/InesHotel/cozido_jyrpop.jpg')
-name_meal = "Buffet Cozido à Portuguesa"
-description_meal = "Cozido à portuguesa é um cozido tradicional português. Trata-se de uma iguaria composta por uma miríade de vegetais, carnes e enchidos cozidos. No que diz respeito aos vegetais, podem ser cozidos feijões, batatas, cenouras, nabos, couves e arroz."
+name_meal = "Homemade stew"
+description_meal = "..."
 price_cents = 12
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents)
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'cozido.jpg', content_type: 'image/jpg')
 meal.save!
 
-# #  5th service Meal
+#---------------
 
+
+ puts "Meal 2"
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583322867/ButlerX/InesHotel/bacalhau_chtwdq.jpg')
-name_meal = "Bacalhau à Brás tradicional"
-description_meal = "A receita de Bacalhau à Brás tradicional que trouxemos até si, é económica e simples de preparar,  acompanhe-a com uma salada de alface cortada em juliana, azeitonas e um bom copo de vinho branco.
-O bacalhau é um peixe magro com cerca de 70 Kcal por cada 100 gramas. É rico em magnésio e potássio e deve ser salgado manter a sua conservação. O bacalhau é demolhado e a seguir cozinha-se no forno, na frigideira, na brasa ou simplesmente cozido em água.
-
-Em Portugal, existem 1001 maneiras de cozinhar bacalhau, umas mais tradicionais outras mais criativas. Os portugueses adoram e consomem o bacalhau em qualquer ponto do país.
-
-Segundo a Dona Dolores, Bacalhau à Brás é um dos pratos preferidos do seu filho e melhor jogador do mundo Cristiano Ronaldo."
+name_meal = "Cod à Brás"
+description_meal = "..."
 price_cents = 12
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents)
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'bacalhau.jpg', content_type: 'image/jpg')
 meal.save!
 
-# #  6th service Meal
+#---------------
 
+ puts "Meal 3"
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583322867/ButlerX/InesHotel/feijoada_p9f7fr.jpg')
-name_meal = "Feijoada tradicional"
-description_meal = "DescriçãoFeijoada é uma designação comum dada a pratos da culinária de regiões e países lusófonos como Portugal, Brasil, Angola, Moçambique, Timor-Leste e Macau. Consiste num guisado de feijão, normalmente com carne, e quase sempre acompanhado com arroz."
+name_meal = "Beans stew"
+description_meal = "..."
 price_cents = 15
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents)
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'feijoada.jpg', content_type: 'image/jpg')
 meal.save!
 
-# # 7th service Meal
+#---------------
 
+ puts "Meal 4"
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583322867/ButlerX/InesHotel/ovos_k4ecyj.jpg')
-name_meal = "Ovos mexidos"
-description_meal = "Ovos mexidos é um prato de culinária feito a partir de ovos de galinha. Os ovos são mexidos e vertidos numa frigideira quente, usualmente untada com gordura e mexidos com um utensílio de cozinha, até começarem a coagular. Este é um prato conhecido e usado no mundo inteiro."
+name_meal = "Scrambled Eggs"
+description_meal = "..."
 price_cents = 10
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents)
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
+meal.save!
+
+#-------##--------
+
+ puts "Meal 5"
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583832380/ButlerX/enbreakfast_jw2mon.jpg')
+name_meal = "English Breakfast"
+description_meal = "..."
+price_cents = 21
+
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
+meal.save!
+#---------------
+
+ puts "Meal 6"
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831416/ButlerX/meatwrap_na8pio.jpg')
+name_meal = "Meat Wrap"
+description_meal = "..."
+price_cents = 12
+
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
+meal.save!
+#---------------
+
+ puts "Meal 7"
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831416/ButlerX/pizza_uxedea.jpg')
+name_meal = "Pepperoni Pizza"
+description_meal = "..."
+price_cents = 11
+
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
+meal.save!
+#---------------
+
+ puts "Meal 8"
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583833198/ButlerX/fried-chicken-burger-with-sriracha-thai-slaw-cheese-and-ranch-mayo-page_bhdgcp.jpg')
+name_meal = "Burger"
+description_meal = "..."
+price_cents = 9.5
+
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
+meal.save!
+#---------------
+
+ puts "Meal 9"
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583836743/ButlerX/fries_ynjy4n.jpg')
+name_meal = "French Fries"
+description_meal = "..."
+price_cents = 7
+
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
+meal.save!
+#---------------
+
+ puts "Meal 10"
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831415/ButlerX/goulashsoup_siy4ue.jpg')
+name_meal = "Goulash Soup"
+description_meal = "..."
+price_cents = 15
+
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
+meal.save!
+#---------------
+
+ puts "Meal 11"
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831415/ButlerX/meatstuffedcabbage_mbhc9n.jpg')
+name_meal = "Meat Stuffed Cabbage"
+description_meal = "..."
+price_cents = 19
+
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
+meal.save!
+#---------------
+
+ puts "Meal 12"
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831415/ButlerX/waterwithgas_rjcjzz.jpg')
+name_meal = "Water with gas"
+description_meal = "..."
+price_cents = 5
+
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
+meal.save!
+#---------------
+
+ puts "Meal 13"
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831415/ButlerX/water_p63req.jpg')
+name_meal = "Water Natural"
+description_meal = "..."
+price_cents = 4
+
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
+meal.save!
+#---------------
+
+ puts "Meal 14"
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831415/ButlerX/7uplata-600x600_hbq2lz.jpg')
+name_meal = "7 Up"
+description_meal = "..."
+price_cents = 5.6
+
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
+meal.save!
+#---------------
+
+ puts "Meal 15"
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831415/ButlerX/287649_1_xnl_kcg3pz.jpg')
+name_meal = "Coca-Cola"
+description_meal = "..."
+price_cents = 5.6
+
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
+meal.save!
+#---------------
+
+ puts "Meal 16"
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831545/ButlerX/71W_3bONurL._AC_SL1500__bxqacb.jpg')
+name_meal = "Bottle of red wine"
+description_meal = "..."
+price_cents = 25
+
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
+meal.save!
+#---------------
+
+ puts "Meal 17"
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583837431/ButlerX/btlofwine_k0c7gf.jpg')
+name_meal = "Bottle of white wine"
+description_meal = "..."
+price_cents = 25
+
+meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal.photo.attach(io: file, filename: 'wine.jpg', content_type: 'image/jpg')
 meal.save!
 
 puts "Meals done"
@@ -336,7 +479,7 @@ description_service = "45 minutes therapeutic massage session that is done to re
 category_service = "Wellness"
 price_cents = 45
 
-service1 = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user)
+service1 = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user, sku: name_service)
 service1.photo.attach(io: file, filename: 'massage.jpg', content_type: 'image/jpg')
 service1.save!
 
@@ -348,7 +491,7 @@ description_service = "Full day in spa"
 category_service = "Wellness"
 price_cents = 120
 
-service1 = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user)
+service1 = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user, sku: name_service)
 service1.photo.attach(io: file, filename: 'spa.jpg', content_type: 'image/jpg')
 service1.save!
 
@@ -359,7 +502,7 @@ description_service = "This hotel offers services of closed swimming pull."
 category_service = "Sport Activities"
 price_cents = 35
 
-service1 = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user)
+service1 = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user, sku: name_service)
 service1.photo.attach(io: file, filename: 'pool.jpg', content_type: 'image/jpg')
 service1.save!
 
@@ -369,7 +512,7 @@ description_service = "More details on car selection available upon contacting f
 category_service = "General"
 price_cents = 15
 
-service1 = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user)
+service1 = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user, sku: name_service)
 service1.photo.attach(io: file, filename: 'car.jpg', content_type: 'image/jpg')
 service1.save!
 
@@ -379,7 +522,7 @@ description_service = "Este hotel dispõe de 1 campo de ténis para os entusiast
 category_service = "Sport Activities"
 price_cents = 10
 
-service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user)
+service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user, sku: name_service)
 service.photo.attach(io: file, filename: 'car.jpg', content_type: 'image/jpg')
 service.save!
 
@@ -391,7 +534,7 @@ description_service = "Outdoor Activities are plenty for our customers, such as 
 category_service = "Sport Activities"
 price_cents = 15
 
-service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user)
+service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user, sku: name_service)
 service.photo.attach(io: file, filename: 'car.jpg', content_type: 'image/jpg')
 service.save!
 
@@ -402,7 +545,7 @@ description_service = "The hotel offers 4 conference rooms of a different price,
 category_service = "General"
 price_cents = 60
 
-service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user)
+service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user, sku: name_service)
 service.photo.attach(io: file, filename: 'car.jpg', content_type: 'image/jpg')
 service.save!
 

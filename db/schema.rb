@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_143036) do
+ActiveRecord::Schema.define(version: 2020_03_10_101721) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,8 +86,9 @@ ActiveRecord::Schema.define(version: 2020_03_10_143036) do
     t.string "name", null: false
     t.text "description", null: false
     t.integer "price"
-    t.bigint "service_id"
-    t.index ["service_id"], name: "index_meals_on_service_id"
+    t.bigint "hotel_id"
+    t.string "sku"
+    t.index ["hotel_id"], name: "index_meals_on_hotel_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -153,7 +155,6 @@ ActiveRecord::Schema.define(version: 2020_03_10_143036) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chat_rooms", "bookings"
-  add_foreign_key "meals", "services"
   add_foreign_key "messages", "chat_rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "roomservices", "rooms"
