@@ -1,0 +1,21 @@
+<%= render "shared/topnavbar" %>
+
+<div>
+  <h3 class="mt-4", id="textprofile">My Profile</h3>
+</div>
+
+<div class="card  _user-info" style="width: 23rem;">
+            <img src="https://www.historyisfun.org/wp-content/uploads/2018/09/John-Smith-picture.jpg" class="card-img-top" alt="">
+               <h3 class="mt-4", id="textprofile">Personal Information</h3>
+              <div class="card-body _profile-card-body" id="text-vertical">
+                <h6 class="titleprofile">Name</h6>
+                <p class="card-text"> <%= @user.first_name %> <%= @user.last_name %></p>
+                <h6>Address</h6>
+                <p class="card-text"><%= @user.address %></p>
+                <h6>Email</h6>
+                <p class="card-text"><%= @user.email %></p>
+              </div>
+ </div>
+
+  <p href="#" class="btn btn-outline-secondary _button-blue" id="profilebutton">Edit Profile</p>
+</div>
