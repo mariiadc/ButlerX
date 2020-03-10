@@ -18,21 +18,26 @@
   </div>
 </div>
  -->
-<div class="container _index-e" align="center">
   <div class="row justify-content-center m-3 p-4">
-      <h5 class="mb-2"> Hotel Services </h5>
+    <h5 class="index-event-title text-center"> Hotel Services </h5>
       <div class="col-xs-12 col-lg-6" id="col-per">
-
-        <div class="card-category align-middle align-items-center" id="upcoming-e" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1541379889336-70f26e4c4617?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80)">
-         <p class="card-title">Chinese Night</p>
-         <p class="card-text" id="event-border">
-         Tuesday, 20pm</p>
-        <h5 id="service-index-title"> Hotel Page Services </h5>
+        <div class ="row" align="center">
          <% @services.each do |service| %>
-        <div class="card-category p-2" id="event-border" style="background-image: url('<%= cl_image_path service.photo.key %>')">
-          <p> <%= service.name %> </p>
+            <div class="col-xs-12 col-lg-6" align="center">
+              <div class="card-category align-middle align-items-center" id="upcoming-e" style="background-image: url('<%= cl_image_path service.photo.key %>')">
+               <p class="card-title"> <%= service.name %> </p>
+                <p class="card-text" id="show-services-border">
+                  <%= service.price %></p>
+              </div>
+            </div>
+            <% end %>
         </div>
-        <% end %>
+      </div>
+  </div>
+
+
+
+
       <!--     <div class="card-category align-middle align-items-center" id="upcoming-s" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1526307616774-60d0098f7642?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80)">
             <p class="card-title">Tennis Club</p>
           </div>
@@ -53,13 +58,15 @@
         </div>
       </div> -->
     </div>
-      <div class="row ml-3 mr-3 pr-4 pl-4">
-        <div class="col-12">
+        <%=  render 'shared/floatbuttonchat' %>
+
+      <!-- <div class="row ml-3 mr-3 pr-4 pl-4">
+        <div class="col-12" align="center">
           <p class="blue-c"> For more information, please <a>contact Front Desk</a></p>
         </div>
       </div>
         <div class="row justify-content-center m-3 p-4">
-          <h5 class="mb-2"> Hotel Facilities </h5>
+          <h5 class="index-event-title text-center"> Hotel Facilities </h5>
           <div class="col-6" id="col-per">
             <div class="card-category" id="index-services">
               <%= cl_image_tag @services.first.photo.key, crop: :fill %>
@@ -81,6 +88,8 @@
         </div>
       </div>
     </div>
-<!--   </div>
+ </div>
 </div>
- -->
+
+
+

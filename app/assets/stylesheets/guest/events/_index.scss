@@ -75,6 +75,7 @@
 .index-e {
   overflow: scroll;
 }
+
 #index-events {
   background-size: cover;
   background-position: center;
@@ -92,14 +93,17 @@
   margin-top:5px;
   margin-inline-start: 3px;
 }
+
   #suggested-event {
   color:white;
 }
+
 .index-event-title {
     color:$white-c;
     padding: 10px;
     margin: 10px;
   }
+
 #upcoming-e {
   background-size: cover;
   background-position: center;
@@ -119,6 +123,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-top:5px;
 }
+
 #upcoming-e p {
   justify-content: center;
   align:center;
@@ -130,12 +135,15 @@
 //   font-size:14px;
 // }
 #event-border {
-  font-size:14px;
-  background-color: #ffffff47;;
+  font-size:15px;
+  // background-color: #ffffff47;
+  background-color:#1c33477a;
   font-color:white;
   border:1px solid none;
-  width:150px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
+
 #col-per {
   padding:0px;
 }
