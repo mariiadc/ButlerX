@@ -1,0 +1,5 @@
+<% if current_user.hotel? %>
+  <%= render "hotel_profile"%>
+<% else %>
+  <%= render guest_profile %>
+<% end %>
