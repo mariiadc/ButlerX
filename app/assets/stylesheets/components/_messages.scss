@@ -8,6 +8,10 @@
   border-bottom-width: 0;
   max-height: calc(100vh - 70px - 45px - 61px - 30px);
   overflow: scroll;
+  background-color: #1D3447;
+  border-style: none;
+  margin-top: 40px;
+  border-radius: 7px
 }
 
 .message {
@@ -16,16 +20,17 @@
   &.right {
     flex-direction: row-reverse;
     .message-content {
-      background-color: $grey-c;
+      background-color:#F7F7F7;
     }
   }
 }
 .message-content {
-  background-color: #F7F7F7;
-  border-radius: 3px;
+  background-color: #D9D0C7;
+  border-radius: 25px;
   margin: 0 10px;
   padding: 11px 10px 8px 10px;
   color: black;
+
 }
 .avatar {
   width: 42px;
@@ -35,9 +40,9 @@
 
 #create-message {
   padding: 10px;
-  background-color: #ffffff;
+  background-color: #1D3447;
   margin-bottom: 20px;
-  border: 1px solid #ececec;
+
 }
 .message_content {
   margin-bottom: 0;
@@ -46,10 +51,11 @@ input.form-control {
   border: 1px solid #ECECEC;
   box-shadow: none;
   font-size: 14px;
-  color: #868686;
+  color: #F7F7F7;
+  border-radius: 10px;
   &:focus {
     outline: none;
-    border: 1px solid blue;
+    border: 1px solid #ECECEC;
     box-shadow: none;
   }
 }
@@ -64,5 +70,16 @@ input.form-control {
 }
 
 .user-name {
-  color: $black-c;
+  color: #F7F7F7;
+}
+
+.btn-dark {
+    background-color: #1D3447;
+    border: transparent;
+}
+
+.btn-dark:hover{
+  color: #F7F7F7;
+  font-weight: bold;
+  background-color: #1D3447;
 }
