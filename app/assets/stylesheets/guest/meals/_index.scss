@@ -3,7 +3,6 @@
   height: 120px;
   background: $blue-c;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
   align-items: center;
   color: $beige-c;
 }
@@ -25,14 +24,13 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-product .card-product-infos-meal {
   padding: 16px;
+  flex-grow: 1;
 }
-.menu-food {
-  margin: 0px;
-  background-color: #b2a496;
 
-}
+
+
 
 .inner2 {
 
@@ -59,4 +57,8 @@
 
 .white-button {
   color: $white-c;
+  font-weight: bold;
+}
+._order {
+  border-color: $beige-c;
 }
