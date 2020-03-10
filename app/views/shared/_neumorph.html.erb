@@ -24,7 +24,7 @@
         <i class="fas fa-utensils _icon-menu"></i>
       </div>
       <div class="container py-3 text-center ">
-        <h5>Dining</h5>
+        <h5><%= link_to "Dinning", guest_booking_meals_path(booking_id: @booking.id), id: "link-menu" %></h5>
       </div>
     </div>
     <div class="box _unit py-3 my-3" id="menu-box">
