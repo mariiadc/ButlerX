@@ -8,9 +8,8 @@ module Guest
       authorize [:guest, @bill]
     end
 
-
     def create
-
+    @booking = Booking.find(params[:booking_id])
     @bill  = Bill.create!(service: service, service_sku: service.sku, amount: service.price, state: 'pending', user: current_user)
     authorize  [:guest, @bill]
 
