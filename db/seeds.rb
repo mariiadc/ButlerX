@@ -277,7 +277,7 @@ name_meal = "Homemade stew"
 description_meal = "..."
 price_cents = 12
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'cozido.jpg', content_type: 'image/jpg')
 meal.save!
 
@@ -290,7 +290,7 @@ name_meal = "Cod à Brás"
 description_meal = "..."
 price_cents = 12
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'bacalhau.jpg', content_type: 'image/jpg')
 meal.save!
 
@@ -302,7 +302,7 @@ name_meal = "Beans stew"
 description_meal = "..."
 price_cents = 15
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'feijoada.jpg', content_type: 'image/jpg')
 meal.save!
 
@@ -314,7 +314,7 @@ name_meal = "Scrambled Eggs"
 description_meal = "..."
 price_cents = 10
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
 meal.save!
 
@@ -326,7 +326,7 @@ name_meal = "English Breakfast"
 description_meal = "..."
 price_cents = 21
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
 meal.save!
 #---------------
@@ -337,7 +337,7 @@ name_meal = "Meat Wrap"
 description_meal = "..."
 price_cents = 12
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
 meal.save!
 #---------------
@@ -348,7 +348,7 @@ name_meal = "Pepperoni Pizza"
 description_meal = "..."
 price_cents = 11
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
 meal.save!
 #---------------
@@ -359,7 +359,7 @@ name_meal = "Burger"
 description_meal = "..."
 price_cents = 9.5
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
 meal.save!
 #---------------
@@ -370,7 +370,7 @@ name_meal = "French Fries"
 description_meal = "..."
 price_cents = 7
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
 meal.save!
 #---------------
@@ -381,7 +381,7 @@ name_meal = "Goulash Soup"
 description_meal = "..."
 price_cents = 15
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
 meal.save!
 #---------------
@@ -392,7 +392,7 @@ name_meal = "Meat Stuffed Cabbage"
 description_meal = "..."
 price_cents = 19
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
 meal.save!
 #---------------
@@ -403,7 +403,7 @@ name_meal = "Water with gas"
 description_meal = "..."
 price_cents = 5
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
 meal.save!
 #---------------
@@ -414,7 +414,7 @@ name_meal = "Water Natural"
 description_meal = "..."
 price_cents = 4
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
 meal.save!
 #---------------
@@ -425,7 +425,7 @@ name_meal = "7 Up"
 description_meal = "..."
 price_cents = 5.6
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
 meal.save!
 #---------------
@@ -436,7 +436,7 @@ name_meal = "Coca-Cola"
 description_meal = "..."
 price_cents = 5.6
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
 meal.save!
 #---------------
@@ -447,7 +447,7 @@ name_meal = "Bottle of red wine"
 description_meal = "..."
 price_cents = 25
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
 meal.save!
 #---------------
@@ -458,7 +458,7 @@ name_meal = "Bottle of white wine"
 description_meal = "..."
 price_cents = 25
 
-meal = Meal.new(name: name_meal, description: description_meal, price: price_cents, hotel_id: user.id, sku: name_meal)
+meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'wine.jpg', content_type: 'image/jpg')
 meal.save!
 

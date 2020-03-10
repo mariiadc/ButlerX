@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_101721) do
-
+ActiveRecord::Schema.define(version: 2020_03_10_162531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,9 +84,9 @@ ActiveRecord::Schema.define(version: 2020_03_10_101721) do
   create_table "meals", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
-    t.integer "price"
     t.bigint "hotel_id"
     t.string "sku"
+    t.integer "price_cents", default: 0, null: false
     t.index ["hotel_id"], name: "index_meals_on_hotel_id"
   end
 
