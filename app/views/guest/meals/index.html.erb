@@ -1,0 +1,42 @@
+<div class="headline text-center pt-3"><p><em>What would you like to order mr <%= @booking.guest.first_name %> <%= @booking.guest.last_name %></em> ?</p></div>
+  <div class="inner2 py-2">
+    <ul class="nav justify-content-center" id="ttl">
+
+      <li class="nav-item " >
+        <button class="btn white-button" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">Meals</button>
+      </li>
+
+      <div class="collapse" id="collapseExample1">
+        <% @meals[0...11].each do |meal| %>
+        <div class="card-product">
+          <%= cl_image_tag meal.photo.key, height: 120, width: 120, crop: :fill %>
+            <div class="card-product-infos">
+              <h6><%= meal.name %> </h6>
+              <p>Price <%= meal.price %> €</p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+      <li class="nav-item " >
+        <button class="btn white-button" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">Drinks</button>
+      </li>
+
+      <div class="collapse" id="collapseExample2">
+        <% @meals[12...17].each do |meal| %>
+        <div class="card-product">
+          <%= cl_image_tag meal.photo.key, height: 120, width: 120, crop: :fill %>
+          <div class="card-product-infos">
+            <h6><%= meal.name %> </h6>
+            <p>Price <%= meal.price %> €</p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
+    </ul>
+  </div>
+</div>
+<br>
+<br>
+<br>

@@ -7,10 +7,10 @@ class User < ApplicationRecord
   has_many :hotel_services, class_name: 'Service', foreign_key: "hotel_id"
   has_many :hotel_rooms, class_name: 'Room', foreign_key: "hotel_id"
   has_many :hotel_chats, class_name: 'Chat', foreign_key: "hotel_id"
-  has_one_attached :photo
-  has_many :meals, through: :services
-  has_many :bills
 
+  has_many :hotel_meals, class_name: 'Meal', foreign_key: "hotel_id"
+  has_many :bills
+  has_one_attached :photo
   devise  :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable,
           :omniauthable, omniauth_providers: [:facebook]
