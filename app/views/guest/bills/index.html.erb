@@ -1,0 +1,18 @@
+
+<div class="container">
+  <% @bills.each do |bill| %>
+  <div class="row py-4">
+    <!-- <div class="col-md-3"><%#= image_tag @bill.service.photo_url, width: '100%' %></div> -->
+    <div class="col">
+      <h1><span class="badge badge-primary"></span></small></h1>
+      <ul class="list-unstyled">
+        <li><strong>Date of purchase:</strong> <%= bill.created_at.to_date %></li>
+        <li><strong>Order:</strong> <%= bill.sku.capitalize %> </li>
+
+        </li>
+      </ul>
+
+    </div>
+  </div>
+  <% end %>
+</div>
