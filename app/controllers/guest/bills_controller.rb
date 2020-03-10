@@ -1,16 +1,27 @@
-module Guest
+  module Guest
   class BillsController < ApplicationController
-    before_action :find, only: [:show]
+    before_action :find, only: [:index, :show]
+
+    def index
+      @bills = policy_scope([:guest, Bill])
+      @bills = Bill.where(booking_id: @booking.id)
+    end
 
     def show
       # @room.roomservices
 
-      authorize [:guest, @bill]
+      authorize [:guest, @bills]
     end
 
     def create
+
+    user = current_user
+    service = Service.find(params[:service_id])
+    meal = Meal.find(params[:meal_id])
+
     @booking = Booking.find(params[:booking_id])
     @bill  = Bill.create!(service: service, service_sku: service.sku, amount: service.price, state: 'pending', user: current_user)
+
     authorize  [:guest, @bill]
 
 
@@ -40,9 +51,13 @@ module Guest
     private
 
     def find
-      @bill = current_user.bills.find(params[:id])
+      @booking = Booking.find(params[:booking_id])
 
-      authorize  [:guest, @bill]
+      # authorize  [:guest, @bills]
+    end
+
+    def find_service_name(sku)
+      Service.find_by(service_sku: sku)
     end
   end
 end
