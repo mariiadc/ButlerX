@@ -35,31 +35,32 @@
                                   </button>
                               </div>
 
-              <div class="modal-body justify-content-center _services-modal-body">
-                <%= simple_form_for [:guest, @booking, service, Bill.new], method: :post do |f| %>
-                <%= f.label service.name %>
-                <br>
-                <%= f.label 'Date' %>
-                <input type="date" id="start_date" name="start_date" value="2020-03-10">
-                <input type="time" id="start_date" name="start_date" value="09:00">
-                <br>
-                <small>Duration 1 hour</small>
-                <%= f.input :amount_cents, :as => :hidden, :input_html => { :value => service.price_cents }  %>
-                <%= f.input :sku, :as => :hidden, :input_html => { :value => service.sku }  %>
-                <%= f.submit 'Book', class: "btn modal-btn" %>
+                              <div class="modal-body justify-content-center _services-modal-body">
+                                <%= simple_form_for [:guest, @booking, CartItem.new], method: :post do |f| %>
+                                  <%= f.label service.name %>
+                                  <br>
+                                  <%= f.label 'Date' %>
+                                  <input type="date" id="start_date" name="start_date" value="2020-03-10">
+                                  <input type="time" id="start_date" name="start_date" value="09:00">
+                                  <br>
+                                  <small>Duration 1 hour</small>
+                                  <%= f.input :cartable_type, as: :hidden, input_html: { value: service.class } %>
+                                  <%= f.input :cartable_id, as: :hidden, input_html: { value: service.id }  %>
+                                  <%= f.submit 'Book', class: "btn modal-btn" %>
+                                <% end %>
+                              </div>
+                            </div>
+                      </div>
+                  </div>
               </div>
             <% end %>
              </div>
             </div>
+            <% end %>
           </div>
         </div>
-      </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-    <!-- </div> -->
-    <%=  render 'shared/floatbuttonchat' %>
-    <br>
-    <br>
-    <br>
+<%=  render 'shared/floatbuttonchat' %>
+<br>
+<br>
+<br>
+

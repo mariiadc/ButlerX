@@ -27,7 +27,7 @@
           <br>
           <%= f.input :cartable_type, as: :hidden, input_html: { value: meal.class } %>
           <%= f.input :cartable_id, as: :hidden, input_html: { value: meal.id }  %>
-          <%= f.submit 'Order', class: "btn btn-outline-light _order my-3 mx-2n" %>
+          <%= f.submit 'Order', class: "btn btn-outline-light _order my-3 mx-2n order-meal" %>
         <% end %>
         <!-- <button type="button" class="btn btn-outline-light _order my-3 mx-2">Order</button> -->
       </div>
@@ -47,13 +47,13 @@
             <p>Price <%= humanized_money_with_symbol(meal.price) %> </p>
           </div>
         </div>
-        <%= simple_form_for [:guest, @booking, CartItem.new], method: :post do |f| %>
+<!--         <%#= simple_form_for [:guest, @booking, CartItem.new], method: :post do |f| %>
           <br>
-          <%= f.input :cartable_type, as: :hidden, input_html: { value: meal.class } %>
-          <%= f.input :cartable_id, as: :hidden, input_html: { value: meal.id }  %>
-          <%= f.submit 'Order', class: "btn btn-outline-light _order my-3 mx-2n" %>
-        <% end %>
-        <!-- <button type="button" class="btn btn-outline-light _order my-3 mx-2">Order</button> -->
+          <%#= f.input :cartable_type, as: :hidden, input_html: { value: meal.class } %>
+          <%#= f.input :cartable_id, as: :hidden, input_html: { value: meal.id }  %>
+          <%#= f.submit 'Order', class: "btn btn-outline-light _order my-3 mx-2n order-meal" %>
+        <%# end %> -->
+        <button type="button" class="btn btn-outline-light _order my-3 mx-2 order-meal">Order</button>
       </div>
       <% end %>
       <br>
@@ -61,6 +61,10 @@
       <br>
     </div>
   </div>
+</div>
+
+<div>
+  <%= render 'meal_cart' %>
 </div>
 
 <%#= simple_form_for [:guest, @booking, CartItem.new], method: :post do |f| %>
