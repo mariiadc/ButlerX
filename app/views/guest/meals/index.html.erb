@@ -20,7 +20,7 @@
         <div class="card-product-infos-meal ">
           <div>
             <h6><%= meal.name %> </h6>
-            <p>Price <%= meal.price %> €</p>
+            <p>Price <%= humanized_money_with_symbol(meal.price) %> </p>
           </div>
         </div>
         <button type="button" class="btn btn-outline-light _order my-3 mx-2">Order</button>
@@ -30,6 +30,7 @@
       <br>
       <br>
     </div>
+
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
       <% @meals[12...17].each do |meal| %>
       <div class="card-product d-flex justify-content-space-around py-2">
@@ -37,7 +38,7 @@
         <div class="card-product-infos-meal ">
           <div>
             <h6><%= meal.name %> </h6>
-            <p>Price <%= meal.price %>€</p>
+            <p>Price <%= humanized_money_with_symbol(meal.price) %> </p>
           </div>
         </div>
         <button type="button" class="btn btn-outline-light _order my-3 mx-2">Order</button>

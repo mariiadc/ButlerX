@@ -24,9 +24,15 @@ Rails.application.routes.draw do
 
   namespace :guest do
     resources :bookings, only: [:index, :show, :new, :create] do
-      resources :services, only: [:index, :show]
+      resources :services, only: [:index, :show] do
+        resources :bills, only: [:index, :show, :create] do
+        end
+      end
       resources :events, only: [:index, :show]
-      resources :meals, only: [:index, :show]
+      resources :meals, only: [:index, :show] do
+        resources :bills, only: [:index, :show, :create] do
+        end
+      end
       resources :rooms, only: [ :show]
       resources :bills, only: [:index, :show, :create] do
         resources :payments, only: :new
