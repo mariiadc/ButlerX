@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_162531) do
+ActiveRecord::Schema.define(version: 2020_03_11_104353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,26 @@ ActiveRecord::Schema.define(version: 2020_03_10_162531) do
     t.bigint "hotel_id"
     t.index ["guest_id"], name: "index_bookings_on_guest_id"
     t.index ["hotel_id"], name: "index_bookings_on_hotel_id"
+  end
+
+  create_table "cart_items", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "cart_id"
+    t.string "cartable_type"
+    t.bigint "cartable_id"
+    t.index ["cart_id"], name: "index_cart_items_on_cart_id"
+    t.index ["cartable_type", "cartable_id"], name: "index_cart_items_on_cartable_type_and_cartable_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.string "state"
+    t.integer "total_price_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "chat_rooms", force: :cascade do |t|
@@ -153,6 +173,8 @@ ActiveRecord::Schema.define(version: 2020_03_10_162531) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cart_items", "carts"
+  add_foreign_key "carts", "users"
   add_foreign_key "chat_rooms", "bookings"
   add_foreign_key "messages", "chat_rooms"
   add_foreign_key "messages", "users"
