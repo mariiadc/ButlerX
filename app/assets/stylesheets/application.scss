@@ -11,13 +11,17 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "components/messages";
+@import "components/message";
 @import "components/navbar";
 @import "components/topnavbar";
 @import "guest/bookings/show";
 @import "guest/rooms/show";
 @import "guest/rooms/key";
 @import "guest/meals/index";
+@import "guest/services/index";
+@import "guest/services/show";
+@import "guest/events/index";
+
 
 @import "guest/bookings/index";
 @import "guest/bookings/show";
