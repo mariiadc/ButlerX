@@ -1,8 +1,6 @@
-
-<div class="container">
-  <h5 class="texth1 text-center mt-4" >Your Upcoming Booking</h5>
+<div class="container ">
+  <h5 class="texth1 text-center mt-2 pt-4" >Your Upcoming Booking</h5>
 </div>
-
 <div class="card-trip my-4 mx-auto">
   <%= cl_image_tag("v1583612143/ButlerX/hotel_banner.jpg") %>
   <div class="card-trip-infos py-2 px-3">
@@ -13,7 +11,6 @@
     </div>
   </div>
 </div>
-
 <div id="card-example" class="card-group">
   <a class="card-group-item text-center card-group-item-action explore texth1 ml-2" href="#card-item-1">My bookings</a>
 </div>
@@ -22,20 +19,19 @@
   <h4 id="card-item-1"></h4>
   <div class="container boxofcards">
     <% @bookings.each do |booking| %>
-    <div class="card-product" id="">
-           <%= cl_image_tag booking.hotel.photo.key, height: 300, width: 400, crop: :fill %>
-      <div class="card-product-infos">
+    <div class="card-product" id="booking-card">
+      <%= cl_image_tag booking.hotel.photo.key, height: 130, width: 130, crop: :fill %>
+      <div class="card-product-infos pl-2">
         <h6> <%= link_to  booking.hotel.name, guest_booking_path(booking), id: "link-hotel" %></h6>
         <p id="address"><%= booking.hotel.address%></p>
         <p id="dates"><%= booking.check_in %> - <%= booking.check_out %></p>
       </div>
     </div>
     <% end %>
-    <br>
-    <br>
-    <br>
-    <br>
   </div>
+  <br>
+  <br>
+  <br>
 </div>
 <%=  render 'shared/floatbuttonplus' %>
 

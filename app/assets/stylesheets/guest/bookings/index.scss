@@ -7,7 +7,7 @@
  width: 100%;
 }
 
-.card-product {
+#booking-card {
   overflow: hidden;
   height: 70%;
 
@@ -18,12 +18,9 @@
   border-radius: 5px;
 }
 
-.card-product img {
-  height: 120px;
-  width: 120px;
-  object-fit: cover;
+#booking-card img {
   border-radius: 6px;
-  margin-left: 5px;
+  vertical-align: baseline;
 }
 
 #link-hotel {
@@ -47,9 +44,9 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
-  padding: 16px;
-}
+// .card-product .card-product-infos {
+//   padding: 16px;
+// }
 
 // neomorphism
 
@@ -68,11 +65,11 @@
   background: transparent;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   width: 85%;
-  margin-top: 100px!important;
+  // margin-top: 100px!important;
 }
 
 
-.card-trip > img {
+.card-trip> img {
   height: 100px;
   width: 100%;
   object-fit: cover;
