@@ -23,7 +23,13 @@
             <p>Price <%= humanized_money_with_symbol(meal.price) %> </p>
           </div>
         </div>
-        <button type="button" class="btn btn-outline-light _order my-3 mx-2">Order</button>
+        <%= simple_form_for [:guest, @booking, CartItem.new], method: :post do |f| %>
+          <br>
+          <%= f.input :cartable_type, as: :hidden, input_html: { value: meal.class } %>
+          <%= f.input :cartable_id, as: :hidden, input_html: { value: meal.id }  %>
+          <%= f.submit 'Order', class: "btn btn-outline-light _order my-3 mx-2n" %>
+        <% end %>
+        <!-- <button type="button" class="btn btn-outline-light _order my-3 mx-2">Order</button> -->
       </div>
       <% end %>
       <br>
@@ -41,7 +47,13 @@
             <p>Price <%= humanized_money_with_symbol(meal.price) %> </p>
           </div>
         </div>
-        <button type="button" class="btn btn-outline-light _order my-3 mx-2">Order</button>
+        <%= simple_form_for [:guest, @booking, CartItem.new], method: :post do |f| %>
+          <br>
+          <%= f.input :cartable_type, as: :hidden, input_html: { value: meal.class } %>
+          <%= f.input :cartable_id, as: :hidden, input_html: { value: meal.id }  %>
+          <%= f.submit 'Order', class: "btn btn-outline-light _order my-3 mx-2n" %>
+        <% end %>
+        <!-- <button type="button" class="btn btn-outline-light _order my-3 mx-2">Order</button> -->
       </div>
       <% end %>
       <br>
@@ -50,4 +62,7 @@
     </div>
   </div>
 </div>
+
+<%#= simple_form_for [:guest, @booking, CartItem.new], method: :post do |f| %>
+
 <%=  render 'shared/floatbuttonchat' %>

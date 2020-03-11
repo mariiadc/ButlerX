@@ -31,6 +31,7 @@ Rails.application.routes.draw do
           get :checkout
         end
       end
+      resources :cart_items, only: [:create]
       resources :services, only: [:index, :show] do
         resources :bills, only: [:index, :show, :create] do
         end
