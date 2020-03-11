@@ -1,5 +1,7 @@
+
 <%= render 'shared/topnavbar' %>
   <div class="row justify-content-center m-3 p-4">
+
     <h5 class="index-event-title text-center"> Hotel Services </h5>
       <div class="col-xs-12 col-lg-6" id="col-per">
         <div class ="row" align="center">
@@ -13,38 +15,39 @@
                   <br>
                   <%#= render "service_booking" %>
 
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#service_modal_<%= service.id %>">Book</button>
+                  <button type="button" class="btn modal-btn" data-toggle="modal" data-target="#service_modal_<%= service.id %>">Book</button>
                           <!-- Modal -->
                         <div class="modal fade" id="service_modal_<%= service.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
+                            <div class="modal-content _services-modal-content">
+                              <div class="modal-header _services-modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Book a service</h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                   </button>
                               </div>
-                              <div class="modal-body">
+
+                              <div class="modal-body justify-content-center _services-modal-body">
                                 <%= simple_form_for [:guest, @booking, service, Bill.new], method: :post do |f| %>
                                   <%= f.label service.name %>
-                                  <%= f.label 'Start Date' %>
+                                  <br>
+                                  <%= f.label 'Date' %>
                                   <input type="date" id="start_date" name="start_date" value="2020-03-10">
                                   <input type="time" id="start_date" name="start_date" value="09:00">
+                                  <br>
                                   <small>Duration 1 hour</small>
-          
                                   <%= f.input :amount_cents, :as => :hidden, :input_html => { :value => service.price_cents }  %>
                                   <%= f.input :sku, :as => :hidden, :input_html => { :value => service.sku }  %>
                                   <%#= f.input :, :as => :hidden, :input_html => { :value => "some value" }  %>
                                   <%#= f.input :, :as => :hidden, :input_html => { :value => "some value" }  %>
-                                  <%= f.submit 'Book', class: "btn btn-primary" %>
-
+                                  <%= f.submit 'Book', class: "btn modal-btn" %>
                                 <% end %>
-
                                 </div>
-                              <div class="modal-footer">
+
+                              <!-- <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                           <button type="button" class="btn btn-primary">Save changes</button>
-                              </div>
+                              </div> -->
                             </div>
                       </div>
                   </div>
@@ -54,7 +57,10 @@
           </div>
         </div>
       </div>
+
+
       <% end %>
+
     </div>
   </div>
 </div>
