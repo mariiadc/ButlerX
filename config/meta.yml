@@ -1,0 +1,5 @@
+meta_product_name: "ButlerX"
+meta_title: "ButlerX - The comfort of home, at a touch of a button."
+meta_description: "The only app you will ever need."
+meta_image: "butler-x.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
   guest_bookings_path
   end
 
+  def default_url_options
+  { host: ENV["www.butlerx.world"] || "localhost:3000" }
+end
+
  private
 
   def skip_pundit?
