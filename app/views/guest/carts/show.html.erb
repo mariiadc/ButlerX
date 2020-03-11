@@ -1,15 +1,81 @@
-<h1>Your orders</h1>
+<%= render "shared/topnavbar" %>
+<div>
+<div>
+  <h1 id="billtext"align="center">Bill</h1>
+</div>
 
-<% @cart.items.each do |item| %>
-  <div class="card-product d-flex justify-content-space-around py-2">
-    <%= cl_image_tag item.photo.key, height: 120, width: 120, crop: :fill %>
-    <div class="card-product-infos-meal ">
-      <div>
-        <h6><%= item.name %> </h6>
-        <p>Price <%= humanized_money_with_symbol(item.price) %> </p>
-      </div>
-    </div>
+  <div class="total-products mx-auto" style="width:450px;">
+    <p class="totaltext" >Total € 105,37</p>
   </div>
-<% end %>
 
-<%= link_to 'Chekout', checkout_guest_booking_cart_path(@booking), class: 'btn btn-primary' %>
+    <div>
+      <h1 id="billtext2"align="center">Detailed Information</h1>
+    </div>
+
+      <div class="bigcard">
+        <% @cart.items.each do |item| %>
+          <div class="card-cart d-flex justify-content-space-around py-2 cartproduct mx-auto" style="width:400px;">
+         <div class="flex-grow-1"> <%= cl_image_tag item.photo.key, height: 100, width: 100, crop: :fill %></div>
+            <div class="card-cart-infos-meal ">
+              <div class="alignright">
+              <h6><%= item.name %> </h6>
+              <p>Price <%= humanized_money_with_symbol(item.price) %> </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+        <div>
+
+         <form action="needs-validation mx-auto" class="mx-auto "style="width:400px">
+            <div class="form-group" id="check">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                  I confirm the total bill is correct
+                </label>
+                <div class="invalid-feedback">
+                You must confirm before checkout
+               </div>
+              </div>
+            </div>
+
+        <button id="pay" class="btn sisu-btnbill" type="submit">Checkout</button>
+        </form>
+
+        <<!-- script>
+          // Example starter JavaScript for disabling form submissions if there are invalid fields
+          (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+              // Fetch all the forms we want to apply custom Bootstrap validation styles to
+              const forms = document.getElementsByClassName('needs-validation');
+              // Loop over them and prevent submission
+              const validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                  if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+                }, false);
+              });
+            }, false);
+          })();
+          </script>
+ -->
+
+        <script src="https://js.stripe.com/v3/"></script>
+
+        <script>
+          const paymentButton = document.getElementById('pay');
+          paymentButton.addEventListener('click', () => {
+            const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+            stripe.redirectToCheckout({
+              sessionId: '<%= @cart.checkout_session_id %>'
+            });
+          });
+        </script>
+</div>
+</div>
