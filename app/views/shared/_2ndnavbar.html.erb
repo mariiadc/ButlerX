@@ -15,7 +15,18 @@
 <div class="dropup">
   <button class="dropbtn"><i class="fas fa-user"></i></button>
   <div class="dropup-content">
+
   <%= link_to "Profile",profile_path, class: "link1" %>
+
+
+  <% if controller_name == 'bookings' && action_name == 'index' %>
+  <%= "" %>
+  <% elsif controller_name == 'bookings' && action_name == 'new' %>
+  <%= "" %>
+  <% else %>
+  <%= link_to "Bill",guest_booking_cart_path(@booking), class: "link3" %>
+  <% end %>
+
 
   <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "link2" %>
 
