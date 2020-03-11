@@ -9,7 +9,7 @@ class Service < ApplicationRecord
   validates :name, presence: true, allow_blank: false
   validates :description, presence: true, allow_blank: false
   validates :category, presence: true, allow_blank: false
-  has_many :bills, as: :billable
+  has_many :cart_items, as: :cartable
 
   monetize :price_cents
 end

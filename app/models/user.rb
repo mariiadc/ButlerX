@@ -11,11 +11,14 @@ class User < ApplicationRecord
   has_many :hotel_meals, class_name: 'Meal', foreign_key: "hotel_id"
   has_many :bills
   has_one_attached :photo
+  has_one :cart
   devise  :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable,
           :omniauthable, omniauth_providers: [:facebook]
 
   enum role: [ :guest, :hotel ]
+
+  after_create :create_cart
 
   has_many :messages, dependent: :destroy
 
@@ -39,5 +42,4 @@ class User < ApplicationRecord
 
     return user
   end
-
 end
