@@ -1,0 +1,29 @@
+<div class="container">
+  <div>
+    <h5 class="mx-auto"> ROOM KEY</h5>
+  </div>
+</div>
+
+<div class="container">
+  <table class="qr mx-auto">
+    <% @qr.modules.each_index do |x| %>
+        <tr>
+          <% @qr.modules.each_index do |y| %>
+              <% if @qr.qrcode.checked?(x,y) %>
+                  <td class="black"/>
+              <% else %>
+                  <td class="white"/>
+              <% end %>
+          <% end %>
+        </tr>
+    <% end %>
+  </table>
+
+  <h5>Hotel: <%= User.find(@booking.hotel_id).name %></h5>
+    <div mx-auto>
+      <h5>Valid between</h5>
+      <p><%= @booking.check_in.strftime('%A %d %B %Y') %></p>
+      <p>to:</p>
+      <p><%= @booking.check_out.strftime('%A %d %B %Y') %> </p>
+    </div>
+</div>

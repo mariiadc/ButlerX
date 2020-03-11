@@ -5,7 +5,9 @@
         <i class="fas fa-key  _icon-menu"></i>
       </div>
       <div class="container py-3  text-center">
+        <%= link_to guest_booking_room_key_path(@booking, @room) do %>
         <h5>Key</h5>
+        <% end %>
       </div>
     </div>
     <div class="box _unit py-3 my-3 " id="menu-box">
