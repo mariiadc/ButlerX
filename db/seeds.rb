@@ -10,6 +10,8 @@ require 'nokogiri'
 
 puts "Destroying All"
 
+CartItem.destroy_all
+Cart.destroy_all
 ChatRoom.destroy_all
 Booking.destroy_all
 Room.destroy_all
@@ -57,17 +59,19 @@ user.save!
 user5 = User.new(email: "franbilio@gmail.com", password: "123456", first_name: "John", last_name: "Smith")
 user5.save!
 
+puts "Creating Room"
+key = "Room booked for #{user5.first_name} #{user5.last_name}, on #{user.name} between #{Date.parse('2020-03-04')} and #{Date.parse('2020-03-14')}. Booking number is: 2662823182. Room: #{355}."
+room1 = Room.new(name: "Apartament Studio with Sea View", room_number: 355, hotel: user, key: key,  availability: true)
+room1.save!
 
 puts "adding booking"
-booking1 = Booking.new(check_in: Date.parse('2020-03-04'), check_out: Date.parse('2020-03-14'), booking_number: '2662823182', hotel: user, guest: user5)
+booking1 = Booking.new(check_in: Date.parse('2020-03-04'), check_out: Date.parse('2020-03-14'), booking_number: '2662823182', hotel: user, guest: user5, room_id: room1.id)
 
 booking1.save!
 
 
 
-puts "Creating Room"
-room1 = Room.new(name: "Apartament Studio with Sea View", room_number: 355, hotel: user, booking_id: booking1.id,  availability: true)
-room1.save!
+
 
 # -----------------2nd hotel-------------------
 
@@ -101,15 +105,18 @@ user2.photo.attach(io: file, filename: 'paris_yopgjt.jpg', content_type: 'image/
 user2.save!
 
 
+puts "Creating Room"
+key = "Room booked for #{user5.first_name} #{user5.last_name}, on #{user2.name} between #{Date.parse('2020-03-15')} and #{Date.parse('2020-03-17')}. Booking number is: 2660003182. Room: #{355}."
+room2 = Room.new(name: "King Room", room_number: 355, hotel: user2, key: key,  availability: true)
+room2.save!
+
 puts "adding booking"
-booking2 = Booking.new(check_in: Date.parse('2020-03-15'), check_out: Date.parse('2020-03-17'), booking_number: '2660003182', hotel: user2, guest: user5)
+booking2 = Booking.new(check_in: Date.parse('2020-03-15'), check_out: Date.parse('2020-03-17'), booking_number: '2660003182', hotel: user2, guest: user5, room_id: room2.id)
 booking2.save!
 
 
 
-puts "Creating Room"
-room2 = Room.new(name: "King Room", room_number: 355, hotel: user2, booking_id: booking2.id,  availability: true)
-room2.save!
+
 
 # -----------------3rd hotel-------------------
 
@@ -143,16 +150,14 @@ user3.photo.attach(io: file, filename: 'barca_otpbsi.jpg', content_type: 'image/
 user3.save!
 
 
-puts "adding booking"
-booking3 = Booking.new(check_in: Date.parse('2020-03-17'), check_out: Date.parse('2020-03-19'), booking_number: '2790003001', hotel: user3, guest: user5)
-booking3.save!
-
-
-
 puts "Creating Room"
-room3 = Room.new(name: "Queen Room", room_number: 355, hotel: user3, booking_id: booking3.id,  availability: true)
+key = "Room booked for #{user5.first_name} #{user5.last_name}, on #{user3.name} between #{Date.parse('2020-03-17')} and #{Date.parse('2020-03-19')}. Booking number is: 2790003001. Room: #{355}."
+room3 = Room.new(name: "Queen Room", room_number: 355, hotel: user3, key: key,  availability: true)
 room3.save!
 
+puts "adding booking"
+booking3 = Booking.new(check_in: Date.parse('2020-03-17'), check_out: Date.parse('2020-03-19'), booking_number: '2790003001', hotel: user3, guest: user5, room_id: room3.id)
+booking3.save!
 
 
 
@@ -187,16 +192,15 @@ user4 = User.new(email: "bang@gmail.com", password: "123456", role: 1, name: nam
 user4.photo.attach(io: file, filename: 'bangkok_t8seke.jpg', content_type: 'image/jpg')
 user4.save!
 
+puts "Creating Room"
+key = "Room booked for #{user5.first_name} #{user5.last_name}, on #{user4.name} between #{Date.parse('2020-03-19')} and #{Date.parse('2020-03-22')}. Booking number is: 2120003112. Room: #{355}."
+room4 = Room.new(name: "King Room", room_number: 355, hotel: user4, key: key,  availability: true)
+room4.save!
+
 
 puts "adding booking"
-booking4 = Booking.new(check_in: Date.parse('2020-03-19'), check_out: Date.parse('2020-03-22'), booking_number: '2120003112', hotel: user4, guest: user5)
+booking4 = Booking.new(check_in: Date.parse('2020-03-19'), check_out: Date.parse('2020-03-22'), booking_number: '2120003112', hotel: user4, guest: user5, room_id: room4.id)
 booking4.save!
-
-
-
-puts "Creating Room"
-room4 = Room.new(name: "King Room", room_number: 355, hotel: user4, booking_id: booking4.id,  availability: true)
-room4.save!
 
 
 
@@ -275,7 +279,7 @@ puts "Creating Meals"
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583322866/ButlerX/InesHotel/cozido_jyrpop.jpg')
 name_meal = "Homemade stew"
 description_meal = "..."
-price_cents = 12
+price_cents = 1200
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'cozido.jpg', content_type: 'image/jpg')
@@ -288,7 +292,7 @@ meal.save!
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583322867/ButlerX/InesHotel/bacalhau_chtwdq.jpg')
 name_meal = "Cod à Brás"
 description_meal = "..."
-price_cents = 12
+price_cents = 1200
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'bacalhau.jpg', content_type: 'image/jpg')
@@ -300,7 +304,7 @@ meal.save!
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583322867/ButlerX/InesHotel/feijoada_p9f7fr.jpg')
 name_meal = "Beans stew"
 description_meal = "..."
-price_cents = 15
+price_cents = 1500
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'feijoada.jpg', content_type: 'image/jpg')
@@ -312,7 +316,7 @@ meal.save!
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583322867/ButlerX/InesHotel/ovos_k4ecyj.jpg')
 name_meal = "Scrambled Eggs"
 description_meal = "..."
-price_cents = 10
+price_cents = 1000
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
@@ -324,7 +328,7 @@ meal.save!
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583832380/ButlerX/enbreakfast_jw2mon.jpg')
 name_meal = "English Breakfast"
 description_meal = "..."
-price_cents = 21
+price_cents = 2100
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
@@ -335,7 +339,7 @@ meal.save!
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831416/ButlerX/meatwrap_na8pio.jpg')
 name_meal = "Meat Wrap"
 description_meal = "..."
-price_cents = 12
+price_cents = 1200
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
@@ -346,7 +350,7 @@ meal.save!
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831416/ButlerX/pizza_uxedea.jpg')
 name_meal = "Pepperoni Pizza"
 description_meal = "..."
-price_cents = 11
+price_cents = 1100
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
@@ -357,7 +361,7 @@ meal.save!
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583833198/ButlerX/fried-chicken-burger-with-sriracha-thai-slaw-cheese-and-ranch-mayo-page_bhdgcp.jpg')
 name_meal = "Burger"
 description_meal = "..."
-price_cents = 9.5
+price_cents = 950
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
@@ -368,7 +372,7 @@ meal.save!
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583836743/ButlerX/fries_ynjy4n.jpg')
 name_meal = "French Fries"
 description_meal = "..."
-price_cents = 7
+price_cents = 700
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
@@ -379,7 +383,7 @@ meal.save!
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831415/ButlerX/goulashsoup_siy4ue.jpg')
 name_meal = "Goulash Soup"
 description_meal = "..."
-price_cents = 15
+price_cents = 1500
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
@@ -390,7 +394,7 @@ meal.save!
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831415/ButlerX/meatstuffedcabbage_mbhc9n.jpg')
 name_meal = "Meat Stuffed Cabbage"
 description_meal = "..."
-price_cents = 19
+price_cents = 1900
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
@@ -401,7 +405,7 @@ meal.save!
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831415/ButlerX/waterwithgas_rjcjzz.jpg')
 name_meal = "Water with gas"
 description_meal = "..."
-price_cents = 5
+price_cents = 500
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
@@ -412,7 +416,7 @@ meal.save!
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831415/ButlerX/water_p63req.jpg')
 name_meal = "Water Natural"
 description_meal = "..."
-price_cents = 4
+price_cents = 400
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
@@ -423,7 +427,7 @@ meal.save!
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831415/ButlerX/7uplata-600x600_hbq2lz.jpg')
 name_meal = "7 Up"
 description_meal = "..."
-price_cents = 5.6
+price_cents = 560
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
@@ -434,7 +438,7 @@ meal.save!
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831415/ButlerX/287649_1_xnl_kcg3pz.jpg')
 name_meal = "Coca-Cola"
 description_meal = "..."
-price_cents = 5.6
+price_cents = 560
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
@@ -445,7 +449,7 @@ meal.save!
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583831545/ButlerX/71W_3bONurL._AC_SL1500__bxqacb.jpg')
 name_meal = "Bottle of red wine"
 description_meal = "..."
-price_cents = 25
+price_cents = 2500
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'ovos.jpg', content_type: 'image/jpg')
@@ -456,7 +460,7 @@ meal.save!
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583837431/ButlerX/btlofwine_k0c7gf.jpg')
 name_meal = "Bottle of white wine"
 description_meal = "..."
-price_cents = 25
+price_cents = 2500
 
 meal = Meal.new(name: name_meal, description: description_meal, price_cents: price_cents, hotel_id: user.id, sku: name_meal)
 meal.photo.attach(io: file, filename: 'wine.jpg', content_type: 'image/jpg')
@@ -489,7 +493,7 @@ file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583775780/B
 name_service = "Day in Spa"
 description_service = "Full day in spa"
 category_service = "Wellness"
-price_cents = 120
+price_cents = 85
 
 service1 = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user, sku: name_service)
 service1.photo.attach(io: file, filename: 'spa.jpg', content_type: 'image/jpg')
@@ -506,11 +510,11 @@ service1 = Service.new(name: name_service, description: description_service, cat
 service1.photo.attach(io: file, filename: 'pool.jpg', content_type: 'image/jpg')
 service1.save!
 
-file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583774579/ButlerX/car_cuepre.jpg')
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583928177/ButlerX/car2_qnubv0.jpg')
 name_service = "Rent a car"
 description_service = "More details on car selection available upon contacting front desk customer service"
 category_service = "General"
-price_cents = 15
+price_cents = 150
 
 service1 = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user, sku: name_service)
 service1.photo.attach(io: file, filename: 'car.jpg', content_type: 'image/jpg')
@@ -520,7 +524,7 @@ file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583776154/B
 name_service = "Outdoor tennis court"
 description_service = "Este hotel dispõe de 1 campo de ténis para os entusiastas de desportos de raquete."
 category_service = "Sport Activities"
-price_cents = 10
+price_cents = 100
 
 service = Service.new(name: name_service, description: description_service, category: category_service, price: price_cents, hotel: user, sku: name_service)
 service.photo.attach(io: file, filename: 'car.jpg', content_type: 'image/jpg')
@@ -538,7 +542,7 @@ service = Service.new(name: name_service, description: description_service, cate
 service.photo.attach(io: file, filename: 'car.jpg', content_type: 'image/jpg')
 service.save!
 
-file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583776312/ButlerX/event-space_pgu6ow.jpg')
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583928955/ButlerX/event-space2_x9hcml.jpg')
 
 name_service = "Rent a Space"
 description_service = "The hotel offers 4 conference rooms of a different price, with capacity between 10 and 50 people."

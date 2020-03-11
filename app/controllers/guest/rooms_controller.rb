@@ -10,6 +10,22 @@ module Guest
       authorize [:guest, @room]
     end
 
+    def key
+      @booking = Booking.find(params[:booking_id])
+      @room = Room.find(@booking.room_id)
+      @key = @room.key
+
+      @qr = RQRCode::QRCode.new(@key)
+      # @svg = qrcode.as_svg(
+      #   offset: 0,
+      #   color: '000',
+      #   shape_rendering: 'crispEdges',
+      #   module_size: 6,
+      #   standalone: true
+      # )
+      authorize [:guest, @room]
+    end
+
   end
 end
 

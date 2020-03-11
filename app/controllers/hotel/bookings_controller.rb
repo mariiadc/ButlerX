@@ -17,6 +17,9 @@ module Hotel
 
     def create
       @booking = Booking.new(booking_params)
+
+      booking_room_key
+
       authorize [:hotel, @booking]
 
       respond_to do |format|
@@ -54,5 +57,18 @@ module Hotel
     def booking_params
       params.require(:booking).permit(:check_in, :check_out, :booking_number)
     end
+
+    def booking_room_key
+      guest = User.find(@booking.guest_id)
+      hotel = User.find(@booking.hotel_id)
+      @room = Room.find(@booking.room_id)
+      room_info = "Room booked for #{guest.first_name} #{guest.last_name}, on #{hotel.name} between #{@booking.check_in} and #{@booking.check_out}. Booking number is: #{@booking.booking_number}. Room: #{@room.room_number}."
+      @room.key = room_info
+      # its commented out, because active record only records strings. not qr_codes.
+      # qr_code = RQRCode::QRCode.new(room_info)
+      # @room.key = qr_code
+      @room.save!
+    end
+
   end
 end

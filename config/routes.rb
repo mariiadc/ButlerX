@@ -40,7 +40,9 @@ Rails.application.routes.draw do
         resources :bills, only: [:index, :show, :create] do
         end
       end
-      resources :rooms, only: [ :show]
+      resources :rooms, only: [ :show] do
+        get 'key', to: 'rooms#key', as: 'key'
+      end
       resources :bills, only: [:index, :show, :create] do
         resources :payments, only: :new
       end
