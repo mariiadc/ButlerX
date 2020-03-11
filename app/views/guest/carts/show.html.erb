@@ -1,0 +1,15 @@
+<h1>Your orders</h1>
+
+<% @cart.items.each do |item| %>
+  <div class="card-product d-flex justify-content-space-around py-2">
+    <%= cl_image_tag item.photo.key, height: 120, width: 120, crop: :fill %>
+    <div class="card-product-infos-meal ">
+      <div>
+        <h6><%= item.name %> </h6>
+        <p>Price <%= humanized_money_with_symbol(item.price) %> </p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to 'Chekout', checkout_guest_booking_cart_path(@booking), class: 'btn btn-primary' %>

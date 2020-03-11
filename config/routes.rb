@@ -23,7 +23,14 @@ Rails.application.routes.draw do
 
 
   namespace :guest do
+    resources :cart_items, only: [:create]
     resources :bookings, only: [:index, :show, :new, :create] do
+      resource :cart, only: [:show] do
+        collection do
+          get :pay
+          get :checkout
+        end
+      end
       resources :services, only: [:index, :show] do
         resources :bills, only: [:index, :show, :create] do
         end
