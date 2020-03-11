@@ -542,7 +542,7 @@ service = Service.new(name: name_service, description: description_service, cate
 service.photo.attach(io: file, filename: 'car.jpg', content_type: 'image/jpg')
 service.save!
 
-file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583928955/ButlerX/event-space2_x9hcml.jpg')
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583933333/ButlerX/event-space3_gnurlp.jpg')
 
 name_service = "Rent a Space"
 description_service = "The hotel offers 4 conference rooms of a different price, with capacity between 10 and 50 people."
