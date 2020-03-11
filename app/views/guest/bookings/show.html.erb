@@ -1,4 +1,6 @@
+<%= render 'shared/topnavbar' %>
 <div class="background-body">
+
   <div class="container-fluid px-0" >
     <div class="inner py-2">
       <h4 id="ttl", class="text-center px-3 py-3"><%= @booking.hotel.name %></h4>
@@ -6,8 +8,15 @@
 
     <%= cl_image_tag(@booking.hotel.photo.key, class: "style-image") %>
   </div>
+  <div class="text-center mt-3 pt-3">
+  <h5><em>Welcome mr <%= @booking.guest.first_name %> <%= @booking.guest.last_name %>!</em></h5>
+  </div>
     <%= render 'shared/neumorph' %>
   <div>
+    <br>
    <%= render 'shared/floatbuttonchat'%>
 </div>
+  <br>
+  <br>
+  <br>
 </div>
