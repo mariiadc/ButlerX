@@ -1,0 +1,68 @@
+
+#billtext{
+margin-top: 40px;
+margin-bottom: 40px;
+font-size: 1.75rem;
+
+}
+
+#billtext2{
+font-size: 16px;
+
+}
+/* Rectangle 20 */
+
+.total-products{
+height: 77px;
+margin: 30px;
+border-radius: 10px;
+background: #FFFFFF;
+}
+
+
+/* $ 0,00 */
+
+.totaltext{
+color: #1D3447;
+text-align: right;
+padding-top: 40px;
+padding-right: 10px;
+font-size: 25px;
+margin-bottom: 10px;
+}
+
+.cartproduct{
+height: 120px;
+margin: 30px;
+border-bottom: 1px solid rgba(255,255,255, 0.3);
+border-top: 1px solid rgba(255,255,255, 0.3);
+}
+
+.card-cart-infos-meal{
+  text-align: right;
+  // width: 500px;
+  padding-top: 60px;
+}
+
+.alignright{
+
+padding-left: 10px;
+}
+
+
+.cartproduct img{
+  border-radius: 5px;
+}
+
+.sisu-btnbill{
+  font-family: 'Montserrat';
+  background:  #1D3447;
+  font-weight: 400;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  color: $white-c;
+  border-color: $white-c;
+  margin-right: 0px;
+  margin-bottom: 70px;
+}

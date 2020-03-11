@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_11_104353) do
+ActiveRecord::Schema.define(version: 2020_03_11_113911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,8 +56,10 @@ ActiveRecord::Schema.define(version: 2020_03_11_104353) do
     t.string "booking_number", null: false
     t.bigint "guest_id"
     t.bigint "hotel_id"
+    t.bigint "room_id"
     t.index ["guest_id"], name: "index_bookings_on_guest_id"
     t.index ["hotel_id"], name: "index_bookings_on_hotel_id"
+    t.index ["room_id"], name: "index_bookings_on_room_id"
   end
 
   create_table "cart_items", force: :cascade do |t|
@@ -124,9 +126,8 @@ ActiveRecord::Schema.define(version: 2020_03_11_104353) do
     t.string "name", null: false
     t.boolean "availability"
     t.string "room_number", null: false
-    t.bigint "booking_id"
     t.bigint "hotel_id"
-    t.index ["booking_id"], name: "index_rooms_on_booking_id"
+    t.string "key"
     t.index ["hotel_id"], name: "index_rooms_on_hotel_id"
   end
 
@@ -173,6 +174,7 @@ ActiveRecord::Schema.define(version: 2020_03_11_104353) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "rooms"
   add_foreign_key "cart_items", "carts"
   add_foreign_key "carts", "users"
   add_foreign_key "chat_rooms", "bookings"

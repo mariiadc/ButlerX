@@ -1,0 +1,25 @@
+<%= render 'shared/topnavbar' %>
+<div class="container _titlekey my-2 py-2 text-center">
+  <p> <strong> Room <%= @room.room_number %></strong></p>
+</div>
+
+<!-- <div class="container"> -->
+<!--   <div class="card">
+ -->
+
+  <div class=" guest-info card m-3 py-2">
+  <div class="px-4">
+  <h5 class="text-center"><%= User.find(@booking.hotel_id).name %></h5>
+<div class="px-3 mt-3">
+      <h6>Valid between</h6>
+      <p><strong><%= @booking.check_in.strftime('%A %d %B %Y') %></strong></p>
+      <p>to:</p>
+      <p><strong><%= @booking.check_out.strftime('%A %d %B %Y') %></strong></p>
+    </div>
+    </div>
+</div>
+<!-- </div>
+ -->
+<div class="qr mx-auto" style="width: 183px;">
+  <%=  @qr.as_svg(offset: 0, color: '000', shape_rendering: 'crispEdges', module_size: 3, standalone: true).html_safe %>
+</div>
