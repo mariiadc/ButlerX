@@ -27,7 +27,7 @@ Meal.destroy_all
 puts "Scrapping and Creating Hotels"
 
 
-user5 = User.new(email: "franbilio@gmail.com", password: "123456", first_name: "John", last_name: "Smith")
+user5 = User.new(email: "franbilio@gmail.com", password: "123456", role: 0, first_name: "John", last_name: "Smith")
 user5.save!
 
 
