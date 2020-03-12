@@ -4,8 +4,12 @@ footer {
   background-color: #1D3447;
   text-align: center;
   height: 130px;
-  max-width: 100%;
-
+  width: 100%;
+ left:0;
+     right:0;
+     position:fixed;
+     bottom:35px;
+     z-index:300;
 
 
 
