@@ -38,7 +38,7 @@
                                   <small>Duration 1 hour</small>
                                   <%= f.input :cartable_type, as: :hidden, input_html: { value: service.class } %>
                                   <%= f.input :cartable_id, as: :hidden, input_html: { value: service.id }  %>
-                                  <%= f.submit 'Book', class: "btn modal-btn" %>
+                                  <%= f.submit 'Book', class: "btn modal-btn order-service" %>
                                 <% end %>
                               </div>
                             </div>
@@ -55,3 +55,14 @@
 <br>
 <br>
 <br>
+
+<script>
+  const displayAlertOnService = () => {
+  const button = document.querySelector('.order-service');
+  button.addEventListener('click', (event) => {
+    window.alert("Your reservation has been sucessfully scheduled. Any questions don't hesitate to contact front desk.");
+  });
+};
+
+displayAlertOnDrink();
+</script>
