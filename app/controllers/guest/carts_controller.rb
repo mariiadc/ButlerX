@@ -4,6 +4,10 @@ module Guest
     before_action :set_cart
 
     def show
+    @cart_total_price = 0
+      @cart.items.each do |i|
+     @cart_total_price += i.price
+      end
     end
 
     def pay
