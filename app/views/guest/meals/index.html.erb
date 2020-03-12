@@ -47,13 +47,13 @@
             <p>Price <%= humanized_money_with_symbol(meal.price) %> </p>
           </div>
         </div>
-<!--         <%#= simple_form_for [:guest, @booking, CartItem.new], method: :post do |f| %>
+        <%= simple_form_for [:guest, @booking, CartItem.new], method: :post do |f| %>
           <br>
-          <%#= f.input :cartable_type, as: :hidden, input_html: { value: meal.class } %>
-          <%#= f.input :cartable_id, as: :hidden, input_html: { value: meal.id }  %>
-          <%#= f.submit 'Order', class: "btn btn-outline-light _order my-3 mx-2n order-meal" %>
-        <%# end %> -->
-        <button type="button" class="btn btn-outline-light _order my-3 mx-2 order-meal">Order</button>
+          <%= f.input :cartable_type, as: :hidden, input_html: { value: meal.class } %>
+          <%= f.input :cartable_id, as: :hidden, input_html: { value: meal.id }  %>
+          <%= f.submit 'Order', class: "btn btn-outline-light _order my-3 mx-2n order-drink" %>
+        <% end %>
+        <!-- <button type="button" class="btn btn-outline-light _order my-3 mx-2 order-drink">Order</button> -->
       </div>
       <% end %>
       <br>
@@ -63,10 +63,28 @@
   </div>
 </div>
 
-<div>
-  <%= render 'meal_cart' %>
-</div>
+
 
 <%#= simple_form_for [:guest, @booking, CartItem.new], method: :post do |f| %>
 
 <%=  render 'shared/floatbuttonchat' %>
+
+<script>
+  const displayAlertOnButtonClick = () => {
+  const button = document.querySelector('.order-meal');
+  button.addEventListener('click', (event) => {
+    window.alert("Thank you! Your order will be delivered in aproximatly 15min. If you order a drink in the next 10min, we will add it to the same cart.");
+  });
+};
+
+displayAlertOnButtonClick();
+
+const displayAlertOnDrink = () => {
+  const button = document.querySelector('.order-drink');
+  button.addEventListener('click', (event) => {
+    window.alert("Thank you! If you ordered food, the drink will be delivered with the food.");
+  });
+};
+
+displayAlertOnDrink();
+</script>
