@@ -3,6 +3,7 @@
  <!--  <a class="navbar-brand" href="#"><i class="fas fa-home"></i></a> -->
   <%= link_to guest_bookings_path, class: "navbar-brand" do %><i class="fas fa-home"></i> <% end %>
 
+
   <% if controller_name == 'bookings' && action_name == 'index' %>
   <%= "" %>
   <% elsif controller_name == 'bookings' && action_name == 'new' %>
@@ -11,22 +12,19 @@
   <%= link_to guest_booking_path(@booking), class: "navbar-brand" do %><i class="fas fa-door-open"></i> <% end %>
   <% end %>
 
+  <% if controller_name == 'bookings' && action_name == 'index' %>
+    <%= "" %>
+  <% elsif controller_name == 'bookings' && action_name == 'new' %>
+    <%= "" %>
+  <% else %>
+    <%= link_to guest_booking_cart_path(@booking), class: "navbar-brand" do %><i class="fas fa-file-alt"></i> <% end %>
+  <% end %>
 
 <div class="dropup">
   <button class="dropbtn"><i class="fas fa-user"></i></button>
   <div class="dropup-content">
 
   <%= link_to "Profile",profile_path, class: "link1" %>
-
-
-  <% if controller_name == 'bookings' && action_name == 'index' %>
-  <%= "" %>
-  <% elsif controller_name == 'bookings' && action_name == 'new' %>
-  <%= "" %>
-  <% else %>
-  <%= link_to "Bill",guest_booking_cart_path(@booking), class: "link3" %>
-  <% end %>
-
 
   <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "link2" %>
 
