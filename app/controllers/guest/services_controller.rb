@@ -11,14 +11,15 @@ module Guest
 
     def show
       @chat_room = ChatRoom.find_by(booking_id: params[:booking_id])
-
+      @booking = Booking.find(params[:booking_id])
+      authorize [:guest, @booking]
       authorize [:guest, @service]
     end
 
     private
 
     def find
-      @service = Service.find(params[:id])
+      @service = Service.find(params[:service_id])
       authorize [:guest, @service]
     end
   end

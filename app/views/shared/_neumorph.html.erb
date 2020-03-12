@@ -32,7 +32,7 @@
         <i class="fas fa-spa _icon-menu"></i>
       </div>
       <div class="container py-3 text-center">
-        <h5>Wellness</h5>
+        <h5><%= link_to "Wellness", guest_booking_service_path(booking_id: @booking.id, service_id: @service.id), id: "link-menu" %></h5>
       </div>
     </div>
   </div>
