@@ -4,15 +4,15 @@
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
+  /*.rails-default-error-page {
     background-color: #EFEFEF;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
-  }
+  }*/
 
-  .rails-default-error-page div.dialog {
+  /*.rails-default-error-page div.dialog {
     width: 95%;
     max-width: 33em;
     margin: 4em auto 0;
@@ -50,17 +50,155 @@
     border-top-color: #DADADA;
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+  }*/
+
+  .mask {
+  background-repeat: no-repeat;
+  background-image:
+    /* frame */
+    linear-gradient(to bottom, #000 8px ,transparent 5px),
+
+    /* eyes */
+    radial-gradient(circle at 35% 9%, #fff 40px, transparent 41px),
+    radial-gradient(circle at 35% 9%, #000 48px,  transparent 49px),
+    radial-gradient(circle at 65% 9%, #fff 40px, transparent 41px),
+    radial-gradient(circle at 65% 9%, #000 48px,  transparent 49px),
+
+    /* nose */
+    linear-gradient(100deg, transparent 40%, #d59d64 40%),
+    linear-gradient(-100deg, transparent 40%, #e0a66b 40%);
+  background-size: 60%, 100%, 100%, 100%, 100%, 9% 45%, 10% 45%;
+  background-position: 50% 0, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 45% 0%, 55% 0%;
+  height: 100%;
+  position: absolute;
+  top: 25%;
+  width: 100%;
+}
+
+/* eye brows */
+.mask:before,
+.mask:after {
+  content: "";
+  position: absolute;
+}
+
+.mask:before {
+  background-color: #222;
+  border-radius: 4px;
+  box-shadow: 120px 0 0 #222;
+  height: 30px;
+  left: 25%;
+  top: -20px;
+  width: 78px;
+}
+
+.mask:after {
+  background-color: #222;
+  border-radius: 4px;
+  height: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 40%;
+  width: 120px;
+  z-index: 0;
+}
+
+.browser {
+  background-color: #f1f1f1;
+  background-image:
+    /* buttons */
+    radial-gradient(circle at 8px 8px, #fd635d 3px, transparent 4px),
+    radial-gradient(circle at 18px 8px, #febe40 3px, transparent 4px),
+    radial-gradient(circle at 28px 8px, #30c947 3px, transparent 4px),
+
+    /* bar */
+    linear-gradient(to bottom, #c8c8c9 5% ,transparent 5%),
+
+     /* skeleton copy */
+    linear-gradient(
+      to bottom,
+      #f1f1f1 10%,
+      transparent 10%,
+      transparent 20%,
+
+      #f1f1f1 20%,
+      #f1f1f1 25%,
+      transparent 25%,
+      transparent 50%,
+
+      #f1f1f1 50%,
+      #f1f1f1 55%,
+      transparent 55%,
+      transparent 60%,
+
+      #f1f1f1 60%,
+      #f1f1f1 65%,
+      transparent 65%,
+      transparent 70%,
+
+      #f1f1f1 70%,
+      #f1f1f1 75%,
+      transparent 75%,
+      transparent 80%,
+
+      #f1f1f1 80%,
+      #f1f1f1 85%,
+      transparent 85%,
+      transparent 95%,
+
+      #f1f1f1 95%,
+      #f1f1f1 100%),
+
+    linear-gradient(
+      to bottom,
+      #f1f1f1 10%,
+      transparent 10%,
+      transparent 30%,
+      #f1f1f1 30%,
+      #f1f1f1 35%,
+      transparent 35%,
+      transparent 95%,
+      #f1f1f1 95%,
+      #f1f1f1 100%),
+
+    linear-gradient(
+      to right,
+      transparent 5%,
+      #e2e2e2 5%,
+      #e2e2e2 30%,
+      transparent 30%,
+      transparent 40%,
+      #e2e2e2 40%,
+      #e2e2e2 95%,
+      transparent 95%,
+      transparent 100%);
+
+  background-size: 100%, 100%, 100%, 100%, 65%, 30%, 100%;
+  background-position: 0 0, 0 0, 0 0, 0 0, 100% 0, 0 0, 0 0;
+  background-repeat: no-repeat;
+  border: 1px solid #a2a2a2;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  display: inline-block;
+  height: 300px;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: 400px;
+  z-index: 1;
+}
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
+ <!--  <div class="dialog">
     <div>
       <h1>We're sorry, but something went wrong.</h1>
     </div>
     <p>If you are the application owner check the logs for more information.</p>
-  </div>
+  </div> -->
+  <div class="browser"><div class="mask"></div></div>
 </body>
 </html>
