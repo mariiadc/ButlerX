@@ -24,8 +24,8 @@
 
 ._unit {
   // z-index: 2;
-
-  background-color: transparent;
+  font-size: 24px;
+  background-color: rgba(35, 62, 86, 0.8);
   position: relative;
   border: 1px solid $beige-c;
   transition: width 2s, height 2s, transform 2s;
@@ -46,22 +46,7 @@
  transform: scale3d(1.1, 1.1, 0.2);
 }
 
-// .border-small {
-//   z-index: 3;
-//   border: 1 solid $beige-c;
-//   position: absolute;
-//   top: -2%;
-//   left:-2%;
-//   opacity: 0.5;
-// }
 
-.background-body {
-  // position: relative;
-// background: #1A2E40;
-// box-shadow: inset 20px 20px 60px #162736,
-//             inset -20px -20px 60px #1e354a;
-
-}
 
 #link-menu {
   color: $gray;
@@ -73,6 +58,7 @@
 #menu-box {
   width: 170px;
   height: 170px;
+
 }
 
 

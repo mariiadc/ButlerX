@@ -1,57 +1,69 @@
 <div class="container-fluid _menu py-4 mr-3" >
   <div class="row justify-content-around">
-    <div class="box _unit py-3 my-3 " id="menu-box">
-      <div class="container py-3 text-center">
-        <i class="fas fa-key  _icon-menu"></i>
+      <%= link_to guest_booking_room_key_path(@booking, @room), id: "link-menu" do %>
+      <div class="box _unit py-3 my-3 " id="menu-box">
+        <div class="container py-3 text-center">
+          <i class="fas fa-key  _icon-menu"></i>
+        </div>
+        <div class="container py-3  text-center">
+          <h5>Key</h5>
+        </div>
       </div>
-      <div class="container py-3  text-center">
-        <h5><%= link_to "Key", guest_booking_room_key_path(@booking, @room), id: "link-menu" %></h5>
-      </div>
-    </div>
+    <% end %>
+    <%= link_to guest_booking_room_path(booking_id: @booking.id, room_id: @room.id), id: "link-menu" do %>
     <div class="box _unit py-3 my-3 " id="menu-box">
       <div class="container py-3 text-center">
         <i class="fas fa-person-booth _icon-menu"></i>
       </div>
 
       <div class="container py-3 text-center">
-        <h5><%= link_to "Room", guest_booking_room_path(booking_id: @booking.id, room_id: @room.id), id: "link-menu" %></h5>
+        <h5>Room</h5>
       </div>
     </div>
   </div>
+  <% end %>
+<%= link_to guest_booking_meals_path(booking_id: @booking.id), id: "link-menu" do %>
   <div class="row justify-content-around">
     <div class="box _unit py-3 my-3 " id="menu-box">
       <div class="container py-3 text-center">
         <i class="fas fa-utensils _icon-menu"></i>
       </div>
       <div class="container py-3 text-center ">
-        <h5><%= link_to "Dinning", guest_booking_meals_path(booking_id: @booking.id), id: "link-menu" %></h5>
+        <h5>Dinning</h5>
       </div>
     </div>
+    <% end %>
+    <%= link_to guest_booking_service_path(booking_id: @booking.id, service_id: @service.id), id: "link-menu"  do %>
     <div class="box _unit py-3 my-3" id="menu-box">
       <div class="container py-3 text-center">
         <i class="fas fa-spa _icon-menu"></i>
       </div>
       <div class="container py-3 text-center">
-        <h5><%= link_to "Wellness", guest_booking_service_path(booking_id: @booking.id, service_id: @service.id), id: "link-menu" %></h5>
+        <h5>Wellness</h5>
       </div>
     </div>
   </div>
+  <% end %>
+  <%= link_to guest_booking_events_path(booking_id: @booking.id), id: "link-menu" do %>
   <div class="row justify-content-around">
     <div class="box _unit py-3 my-3 " id="menu-box">
       <div class="container py-3 text-center">
         <i class="far fa-calendar-alt _icon-menu"></i>
       </div>
       <div class="container py-3 text-center">
-        <h5><%= link_to "Events", guest_booking_events_path(booking_id: @booking.id), id: "link-menu" %></h5>
+        <h5>Events</h5>
       </div>
     </div>
+    <% end %>
+    <%= link_to guest_booking_services_path(booking_id: @booking.id), id: "link-menu" do %>
     <div class="box _unit py-3 my-3" id="menu-box">
       <div class="container py-3 text-center">
         <i class="fas fa-concierge-bell _icon-menu"></i>
       </div>
       <div class="container py-3 text-center">
-        <h5><%= link_to "Services", guest_booking_services_path(booking_id: @booking.id), id: "link-menu" %></h5>
+        <h5>Services</h5>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
