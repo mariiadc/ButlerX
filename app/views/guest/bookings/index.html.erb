@@ -1,6 +1,7 @@
 <div class="container ">
   <h5 class="texth1 text-center mt-2 pt-4" >Your Upcoming Booking</h5>
 </div>
+
 <div class="card-trip my-4 mx-auto">
   <%= cl_image_tag("v1583612143/ButlerX/hotel_banner.jpg") %>
   <div class="card-trip-infos py-2 px-3">
@@ -9,8 +10,19 @@
       <p id="address"><%= @bookings[0].hotel.address%></p>
       <p id="dates"><%= @bookings[0].check_in %> - <%= @bookings[0].check_out %></p>
     </div>
+
+
+      <% if @bookings[0].check_in <  Time.now %>
+        <p class="status1"> Checked in</p>
+     <% else %>
+        <p class="status2"> Check in not Available yet</p>
+    <% end %>
+    </div>
+
+
   </div>
-</div>
+
+
 <div id="card-example" class="card-group">
   <a class="card-group-item text-center card-group-item-action explore texth1 ml-2" href="#card-item-1">My bookings</a>
 </div>

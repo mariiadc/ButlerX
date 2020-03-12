@@ -4,8 +4,8 @@
   <h1 id="billtext"align="center">Bill</h1>
 </div>
 
-  <div class="total-products mx-auto" style="width:450px;">
-    <p class="totaltext" >Total € 105,37</p>
+  <div class="total-products mx-auto" style="width:300px;">
+    <p class="totaltext" >Total <%= humanized_money_with_symbol(@cart_total_price)%></p>
   </div>
 
     <div>
@@ -14,7 +14,7 @@
 
       <div class="bigcard">
         <% @cart.items.each do |item| %>
-          <div class="card-cart d-flex justify-content-space-around py-2 cartproduct mx-auto" style="width:400px;">
+          <div class="card-cart d-flex justify-content-space-around py-2 cartproduct mx-auto" style="width:320px;">
          <div class="flex-grow-1"> <%= cl_image_tag item.photo.key, height: 100, width: 100, crop: :fill %></div>
             <div class="card-cart-infos-meal ">
               <div class="alignright">
@@ -25,10 +25,9 @@
           </div>
         <% end %>
       </div>
-
         <div>
 
-         <form action="needs-validation mx-auto" class="mx-auto" style="width:400px">
+         <form action="needs-validation mx-auto" class="mx-auto" style="width:320px">
             <div class="form-group" id="check">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
@@ -40,9 +39,12 @@
                </div>
               </div>
             </div>
-
-        <button id="pay" class="btn sisu-btnbill" type="submit">Checkout</button>
         </form>
+              <div class="mx-auto" style="width:320px">
+               <%= link_to "Checkout", checkout_guest_booking_cart_path(@booking), class: "btn sisu-btnbill" %>
+              </div>
+
+
 
         <!-- script>
           // Example starter JavaScript for disabling form submissions if there are invalid fields
