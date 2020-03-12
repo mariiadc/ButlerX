@@ -26,6 +26,39 @@ Meal.destroy_all
 
 puts "Scrapping and Creating Hotels"
 
+
+user5 = User.new(email: "franbilio@gmail.com", password: "123456", first_name: "John", last_name: "Smith")
+user5.save!
+
+
+file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1584026100/ButlerX/lewagon_jticen.jpg')
+
+
+
+user = User.new(email: "facsr92@gmail.com", password: "123456", role: 1, name: "Boutique em frente de Le Wagon", address: "Rua do Conde Redondo 60, Lisbon", stars: 5, first_name: "Hotel", last_name: "Smith" )
+user.photo.attach(io: file, filename: 'hotel_banner.jpg', content_type: 'image/jpg')
+user.save!
+
+puts "Creating Room"
+key = "Room booked for #{user5.first_name} #{user5.last_name}, on #{user.name} between #{Date.parse('2020-03-04')} and #{Date.parse('2020-03-14')}. Booking number is: 2662823182. Room: #{335}."
+room = Room.new(name: "Apartament Studio with City View", room_number: 335, hotel: user, key: key,  availability: true)
+room.save!
+
+puts "adding booking"
+booking = Booking.new(check_in: Date.parse('2020-03-04'), check_out: Date.parse('2020-03-14'), booking_number: '2000023182', hotel: user, guest: user5, room_id: room.id)
+
+booking.save!
+
+
+
+
+
+
+
+
+
+
+# ----------------1st hotel-------------------------------------------------------
 url1_Budapest = "https://www.booking.com/hotel/hu/corinthiaroyal.en-gb.html?aid=1508980&sid=f15d119503c743870f587d0d451915a4"
 
 html_file1 = open(url1_Budapest).read
@@ -52,20 +85,19 @@ puts "Creating Hotel with scrapped data and John Smith user"
 
 file = URI.open('https://res.cloudinary.com/djx2n26vg/image/upload/v1583612143/ButlerX/hotel_banner.jpg')
 
-user = User.new(email: "facsr92@gmail.com", password: "123456", role: 1, name: name, address: address, stars: stars, first_name: "Hotel", last_name: "Smith" )
-user.photo.attach(io: file, filename: 'hotel_banner.jpg', content_type: 'image/jpg')
-user.save!
 
-user5 = User.new(email: "franbilio@gmail.com", password: "123456", first_name: "John", last_name: "Smith")
-user5.save!
+
+user1 = User.new(email: "a@gmail.com", password: "123456", role: 1, name: name, address: address, stars: stars, first_name: "Hotel", last_name: "Smith" )
+user1.photo.attach(io: file, filename: 'hotel_banner.jpg', content_type: 'image/jpg')
+user1.save!
 
 puts "Creating Room"
-key = "Room booked for #{user5.first_name} #{user5.last_name}, on #{user.name} between #{Date.parse('2020-03-04')} and #{Date.parse('2020-03-14')}. Booking number is: 2662823182. Room: #{355}."
-room1 = Room.new(name: "Apartament Studio with Sea View", room_number: 355, hotel: user, key: key,  availability: true)
+key = "Room booked for #{user5.first_name} #{user5.last_name}, on #{user.name} between #{Date.parse('2020-03-15')} and #{Date.parse('2020-03-18')}. Booking number is: 2662823182. Room: #{355}."
+room1 = Room.new(name: "Apartament Studio with Sea View", room_number: 355, hotel: user1, key: key,  availability: true)
 room1.save!
 
 puts "adding booking"
-booking1 = Booking.new(check_in: Date.parse('2020-03-04'), check_out: Date.parse('2020-03-14'), booking_number: '2662823182', hotel: user, guest: user5, room_id: room1.id)
+booking1 = Booking.new(check_in: Date.parse('2020-03-14'), check_out: Date.parse('2020-03-15'), booking_number: '2662823182', hotel: user1, guest: user5, room_id: room1.id)
 
 booking1.save!
 
@@ -106,7 +138,7 @@ user2.save!
 
 
 puts "Creating Room"
-key = "Room booked for #{user5.first_name} #{user5.last_name}, on #{user2.name} between #{Date.parse('2020-03-15')} and #{Date.parse('2020-03-17')}. Booking number is: 2660003182. Room: #{355}."
+key = "Room booked for #{user5.first_name} #{user5.last_name}, on #{user2.name} between #{Date.parse('2020-03-18')} and #{Date.parse('2020-03-23')}. Booking number is: 2660003182. Room: #{355}."
 room2 = Room.new(name: "King Room", room_number: 355, hotel: user2, key: key,  availability: true)
 room2.save!
 
@@ -151,7 +183,7 @@ user3.save!
 
 
 puts "Creating Room"
-key = "Room booked for #{user5.first_name} #{user5.last_name}, on #{user3.name} between #{Date.parse('2020-03-17')} and #{Date.parse('2020-03-19')}. Booking number is: 2790003001. Room: #{355}."
+key = "Room booked for #{user5.first_name} #{user5.last_name}, on #{user3.name} between #{Date.parse('2020-03-24')} and #{Date.parse('2020-03-27')}. Booking number is: 2790003001. Room: #{355}."
 room3 = Room.new(name: "Queen Room", room_number: 355, hotel: user3, key: key,  availability: true)
 room3.save!
 
@@ -193,7 +225,7 @@ user4.photo.attach(io: file, filename: 'bangkok_t8seke.jpg', content_type: 'imag
 user4.save!
 
 puts "Creating Room"
-key = "Room booked for #{user5.first_name} #{user5.last_name}, on #{user4.name} between #{Date.parse('2020-03-19')} and #{Date.parse('2020-03-22')}. Booking number is: 2120003112. Room: #{355}."
+key = "Room booked for #{user5.first_name} #{user5.last_name}, on #{user4.name} between #{Date.parse('2020-03-27')} and #{Date.parse('2020-03-28')}. Booking number is: 2120003112. Room: #{355}."
 room4 = Room.new(name: "King Room", room_number: 355, hotel: user4, key: key,  availability: true)
 room4.save!
 
@@ -205,7 +237,10 @@ booking4.save!
 
 
 # Creating chatrooms for all the bookings
-
+chat_room = ChatRoom.create!(name: "Customer Support", booking_id: booking.id)
+message = Message.new(content: "Hi! Welcome to our establishment. Anything you need don't hesitate to get in touch with us. Hope you enjoy your stay.",
+  chat_room_id: chat_room.id, user_id: user.id)
+message.save!
 
 chat_room = ChatRoom.create!(name: "Customer Support", booking_id: booking1.id)
 message = Message.new(content: "Hi! Welcome to our establishment. Anything you need don't hesitate to get in touch with us. Hope you enjoy your stay.",

@@ -70,7 +70,7 @@
 
 
 .card-trip> img {
-  height: 100px;
+  height: 150px;
   width: 100%;
   object-fit: cover;
 }
@@ -85,7 +85,6 @@
   margin-bottom: 0px;
   padding-left: 10px;
   color: $beige-c;
-  text-decoration: none;
 }
 
 #dates {
@@ -95,7 +94,6 @@
   margin-bottom: 0px;
   font-weight: bold;
   color: $beige-c;
-  text-decoration: none;
 }
 
 .card-trip-infos {
@@ -120,6 +118,6 @@ margin-bottom: 0px;
 font-size: 14px;
 }
 
-#link-currently {
-  text-decoration: none;
+.newtext {
+  text-decoration: none !important;
 }

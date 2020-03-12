@@ -1,9 +1,9 @@
 <div class="container ">
   <h5 class="texth1 text-center mt-2 pt-4" >Your Upcoming Booking</h5>
-</div>
-<%=link_to guest_booking_path(@bookings[0]) do  %>
-<div class="card-trip my-4 mx-auto" id="link-currently">
-  <%= cl_image_tag("v1583612143/ButlerX/hotel_banner.jpg") %>
+
+<%=link_to guest_booking_path(@bookings[0]), class: "newtext" do  %>
+<div class="card-trip my-4 mx-auto">
+  <%= cl_image_tag("v1584026100/ButlerX/lewagon_jticen.jpg") %>
   <div class="card-trip-infos py-2 px-3">
     <div>
       <h6 id= "link-hotel-current" > <%= @bookings[0].hotel.name %></h6>
@@ -22,12 +22,13 @@
     <a class="card-group-item text-center card-group-item-action explore texth1 ml-2" href="#card-item-1">My bookings</a>
   </div>
   <br>
+  <div class="row">
 <div data-spy="scroll" data-target="#card-example" data-offset="0" class="scrollspy-example">
   <h4 id="card-item-1"></h4>
   <div class="container boxofcards">
-    <% @bookings.each do |booking| %>
-    <div class="card-product" id="booking-card">
-      <%= cl_image_tag booking.hotel.photo.key, height: 130, width: 130, crop: :fill %>
+    <% @bookings[1...5].each do |booking| %>
+    <div class="card-product col-sm-12" id="booking-card">
+        <%= cl_image_tag booking.hotel.photo.key, height: 130, crop: :fill, style: 'width: 40%;' %>
       <div class="card-product-infos pl-2">
         <h6> <%= link_to  booking.hotel.name, guest_booking_path(booking), id: "link-hotel" %></h6>
         <p id="address"><%= booking.hotel.address%></p>
@@ -39,6 +40,8 @@
   <br>
   <br>
   <br>
+</div>
+</div>
 </div>
 <%=  render 'shared/floatbuttonplus' %>
 <%=  render 'shared/2ndnavbar' %>
