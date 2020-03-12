@@ -1,0 +1,15 @@
+.modal-backdrop {
+  z-index: -1;
+}
+
+.modal-footer form{
+  width: 100%;
+}
+
+.modal-buttons {
+  justify-content: space-between;
+}
+
+._meal-modal {
+  color: $grey-c;
+}

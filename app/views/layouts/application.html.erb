@@ -31,7 +31,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body>
+  <body class="<%= controller_name %> <%= action_name %>">
 
 
 
@@ -43,7 +43,7 @@
 
 
       <%= yield %>
-    <%#= render 'shared/flashes' %>
+    <%= render 'shared/flashes' %>
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

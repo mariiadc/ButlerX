@@ -1,7 +1,7 @@
 <%= render 'shared/topnavbar' %>
 <div class="headline text-center mt-4 pt-3">
   <p><em>What would you like to order
-   mr <%= @booking.guest.first_name %> <%= @booking.guest.last_name %></em> ?</p>
+   Mr <%= @booking.guest.first_name %> <%= @booking.guest.last_name %></em> ?</p>
 </div>
 <div class="inner2 mt-4 py-2">
   <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
@@ -16,20 +16,15 @@
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
       <% @meals[0...11].each do |meal| %>
       <div class="card-product d-flex justify-content-space-around py-2">
-        <%= cl_image_tag meal.photo.key, height: 120, width: 120, crop: :fill %>
+        <%= cl_image_tag meal.photo.key, height: 120, crop: :fill, style: 'width: 40%;' %>
         <div class="card-product-infos-meal ">
           <div>
             <h6><%= meal.name %> </h6>
             <p>Price <%= humanized_money_with_symbol(meal.price) %> </p>
           </div>
         </div>
-        <%= simple_form_for [:guest, @booking, CartItem.new], method: :post do |f| %>
           <br>
-          <%= f.input :cartable_type, as: :hidden, input_html: { value: meal.class } %>
-          <%= f.input :cartable_id, as: :hidden, input_html: { value: meal.id }  %>
-          <%= f.submit 'Order', class: "btn btn-outline-light _order my-3 mx-2n order-meal" %>
-        <% end %>
-        <!-- <button type="button" class="btn btn-outline-light _order my-3 mx-2">Order</button> -->
+        <%= render 'meal_cart', meal: meal  %>
       </div>
       <% end %>
       <br>
@@ -40,51 +35,21 @@
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
       <% @meals[12...17].each do |meal| %>
       <div class="card-product d-flex justify-content-space-around py-2">
-        <%= cl_image_tag meal.photo.key, height: 120, width: 120, crop: :fill %>
+        <%= cl_image_tag meal.photo.key, height: 120, crop: :fill, style: 'width: 40%;' %>
         <div class="card-product-infos-meal ">
           <div>
             <h6><%= meal.name %> </h6>
             <p>Price <%= humanized_money_with_symbol(meal.price) %> </p>
           </div>
         </div>
-        <%= simple_form_for [:guest, @booking, CartItem.new], method: :post do |f| %>
           <br>
-          <%= f.input :cartable_type, as: :hidden, input_html: { value: meal.class } %>
-          <%= f.input :cartable_id, as: :hidden, input_html: { value: meal.id }  %>
-          <%= f.submit 'Order', class: "btn btn-outline-light _order my-3 mx-2n order-drink" %>
-        <% end %>
-        <!-- <button type="button" class="btn btn-outline-light _order my-3 mx-2 order-drink">Order</button> -->
+
+        <%= render 'meal_cart', meal: meal  %>
       </div>
       <% end %>
       <br>
       <br>
       <br>
     </div>
-  </div>
-</div>
-
-
-
-<%#= simple_form_for [:guest, @booking, CartItem.new], method: :post do |f| %>
 
 <%=  render 'shared/floatbuttonchat' %>
-
-<script>
-  const displayAlertOnButtonClick = () => {
-  const button = document.querySelector('.order-meal');
-  button.addEventListener('click', (event) => {
-    window.alert("Thank you! Your order will be delivered in approximately 15min. If you order a drink in the next 10min, we will add it to the same cart.");
-  });
-};
-
-displayAlertOnButtonClick();
-
-const displayAlertOnDrink = () => {
-  const button = document.querySelector('.order-drink');
-  button.addEventListener('click', (event) => {
-    window.alert("Thank you! If you ordered food, the drink will be delivered with the food.");
-  });
-};
-
-displayAlertOnDrink();
-</script>

@@ -38,6 +38,9 @@ Rails.application.routes.draw do
       end
       resources :events, only: [:index, :show]
       resources :meals, only: [:index, :show] do
+        collection do
+          get 'order_modal', to: "meals#open_modal"
+        end
         resources :bills, only: [:index, :show, :create] do
         end
       end

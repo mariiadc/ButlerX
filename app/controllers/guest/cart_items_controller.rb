@@ -14,7 +14,8 @@ module Guest
       if cart_item_params[:cartable_type] == "Service"
         redirect_to guest_booking_services_path(booking)
       else
-        redirect_to guest_booking_meals_path(booking)
+        meal = Meal.find(params[:cart_item][:cartable_id])
+        redirect_to guest_booking_meals_path(booking), notice: "#{meal.name}, delivery in 15 minutes"
       end
     end
 

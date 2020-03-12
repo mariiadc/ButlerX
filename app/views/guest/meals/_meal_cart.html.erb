@@ -1,25 +1,46 @@
-<div class="modal fade" id="cartMeal" tabindex="-1" role="dialog" aria-labelledby="cartModal" aria-hidden="true">
+<!-- Button trigger modal-->
+
+<button type="button" class="btn btn-outline-light _order my-3 mx-2n order-meal" data-toggle="modal" data-target="#modalCart-<%= meal.id %>">Order</button>
+<!-- Modal: modalCart -->
+<div class="modal" id="modalCart-<%= meal.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+      <!--Header-->
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h4 class="modal-title _meal-modal" id="myModalLabel">Are you sure you want to order?</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true">×</span>
         </button>
       </div>
+      <!--Body-->
       <div class="modal-body">
-        ...
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Meal name</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody class="cart-table">
+            <tr class="cart-row">
+              <th> <%= meal.name %></th>
+              <th> <%= humanized_money_with_symbol(meal.price) %></th>
+            </tr>
+        </table>
       </div>
+      <!--Footer-->
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Buy</button>
+          <%= simple_form_for [:guest, @booking, CartItem.new], method: :post do |f| %>
+          <br>
+          <%= f.input :cartable_type, as: :hidden, input_html: { value: meal.class } %>
+          <%= f.input :cartable_id, as: :hidden, input_html: { value: meal.id }  %>
+          <div class="d-flex modal-buttons">
+            <%= f.submit 'Deliver later', class: "btn btn-outline-secondary" %>
+            <%= f.submit 'Deliver Now', class: "btn btn-outline-secondary order-now" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-
-<script>
-  const order = document.querySelector('.order-meal')
-
-// SWALL - Sweet ALErt!!!
-</script>
