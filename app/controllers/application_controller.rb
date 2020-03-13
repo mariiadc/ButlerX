@@ -28,8 +28,8 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options
-  { host: ENV["www.butlerx.world"] || "localhost:3000" }
-end
+    { host: "www.butlerx.world", protocol: 'https' }
+  end
 
  private
 
