@@ -5,7 +5,6 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-  config.default_url_options[:host] = 'https://www.butlerx.world'
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -68,7 +67,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_controller.default_url_options = { host: 'https://www.butlerx.world' }
+  config.action_controller.default_url_options = { host: 'www.butlerx.world', protocol: 'https' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
