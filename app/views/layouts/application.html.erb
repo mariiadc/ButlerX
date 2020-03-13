@@ -43,7 +43,9 @@
 
 
       <%= yield %>
-    <%= render 'shared/flashes' %>
+    <% if controller_name != 'sessions' &&  controller_name != 'pages' %>
+      <%= render 'shared/flashes' %>
+    <% end %>
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
