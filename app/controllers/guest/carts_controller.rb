@@ -33,7 +33,9 @@ module Guest
 
       @cart.update(checkout_session_id: session.id)
 
-      redirect_to pay_guest_booking_cart_path(@booking)
+
+
+      redirect_to root_path, notice: 'Payment successfully processed.'
     end
 
     private
